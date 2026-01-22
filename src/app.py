@@ -140,7 +140,7 @@ def get_vm_ip():
 # ================================================================
 # STATE MANAGER
 # ================================================================
-from state_manager import load_state, save_state
+from src.state_manager import load_state, save_state
 
 _disk_state = load_state()
 
