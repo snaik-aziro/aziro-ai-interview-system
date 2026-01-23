@@ -3,34 +3,32 @@ import os
 from pathlib import Path
 
 # -------------------------------------------------
-# SESSION ID (MANDATORY)
+# SESSION ID
 # -------------------------------------------------
-SESSION_ID = os.environ.get("AZIRO_SESSION_ID")
-if not SESSION_ID:
-    raise RuntimeError(
-        "AZIRO_SESSION_ID not set. "
-        "Start Streamlit with AZIRO_SESSION_ID=<port_or_name>"
-    )
+SESSION_ID = os.environ.get("AZIRO_SESSION_ID", "LOCAL")
 
 # -------------------------------------------------
-# FORCE DEV STATE DIRECTORY (TEMP FIX)
+# STATE DIRECTORY (ENV-BASED, DEV SAFE)
 # -------------------------------------------------
-STATE_DIR = os.path.expanduser("~/.aziro_state")
-Path(STATE_DIR).mkdir(parents=True, exist_ok=True)
+BASE_STATE_DIR = os.environ.get(
+    "AZIRO_STATE_DIR",
+    os.path.expanduser("~/.aziro_state")
+)
 
-STATE_FILE = os.path.join(STATE_DIR, f"state_{SESSION_ID}.json")
+STATE_DIR = Path(BASE_STATE_DIR)
+STATE_DIR.mkdir(parents=True, exist_ok=True)
+
+STATE_FILE = STATE_DIR / f"state_{SESSION_ID}.json"
 
 
 def load_state():
-    if not os.path.exists(STATE_FILE):
+    if not STATE_FILE.exists():
         return {}
     try:
-        with open(STATE_FILE, "r") as f:
-            return json.load(f)
+        return json.loads(STATE_FILE.read_text())
     except Exception:
         return {}
 
 
 def save_state(state):
-    with open(STATE_FILE, "w") as f:
-        json.dump(state, f, indent=2)
+    STATE_FILE.write_text(json.dumps(state, indent=2))

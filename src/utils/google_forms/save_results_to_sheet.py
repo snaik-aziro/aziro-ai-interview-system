@@ -1,34 +1,61 @@
 from datetime import datetime
-from src.utils.google_forms.form_api import get_sheets_service, get_drive_service
+import re
 
+from src.utils.google_forms.form_api import (
+    get_sheets_service,
+    get_drive_service,
+)
+
+# Parent folder in Google Drive where result sheets live
 FOLDER_ID = "1pcXw5Rn-2z3YBULkkbTmiPo91P9xxjRm"
+
 ROUND_ORDER = ["L1", "L2", "L3", "L4", "L5"]
+
+
+def _sanitize_drive_name(name: str) -> str:
+    """
+    Google Drive-safe name:
+    - no backslashes
+    - no newlines
+    - no quotes
+    """
+    name = name.replace("\\", "/")
+    name = name.replace("\n", " ").replace("\r", " ")
+    name = re.sub(r"[\"']", "", name)
+    return name.strip()
 
 
 def _get_or_create_result_sheet(uid: str) -> str:
     drive = get_drive_service()
     sheets = get_sheets_service()
 
-    name = f"{uid}_results"
+    # Sheet name must be Drive-safe
+    name = _sanitize_drive_name(f"{uid}_results")
 
     query = (
         f"name = '{name}' and "
         f"'{FOLDER_ID}' in parents and "
-        "mimeType = 'application/vnd.google-apps.spreadsheet' and trashed = false"
+        "mimeType = 'application/vnd.google-apps.spreadsheet' and "
+        "trashed = false"
     )
 
-    resp = drive.files().list(q=query, fields="files(id)").execute()
-    files = resp.get("files", [])
+    resp = drive.files().list(
+        q=query,
+        fields="files(id)",
+    ).execute()
 
+    files = resp.get("files", [])
     if files:
         return files[0]["id"]
 
+    # Create new spreadsheet
     sheet = sheets.spreadsheets().create(
         body={"properties": {"title": name}}
     ).execute()
 
     spreadsheet_id = sheet["spreadsheetId"]
 
+    # Move it into the correct Drive folder
     drive.files().update(
         fileId=spreadsheet_id,
         addParents=FOLDER_ID,
@@ -39,11 +66,18 @@ def _get_or_create_result_sheet(uid: str) -> str:
     return spreadsheet_id
 
 
-def _initialize_sheet(sheets, spreadsheet_id):
+def _initialize_sheet(sheets, spreadsheet_id: str):
     header = [[
-        "UID", "Candidate Name", "Email", "Round",
-        "Total Questions", "Correct Answers", "Score %",
-        "Focus Violations", "Status", "Last Updated"
+        "UID",
+        "Candidate Name",
+        "Email",
+        "Round",
+        "Total Questions",
+        "Correct Answers",
+        "Score %",
+        "Focus Violations",
+        "Status",
+        "Last Updated",
     ]]
 
     sheets.spreadsheets().values().update(
@@ -76,34 +110,15 @@ def save_round_result(
 ) -> str:
     """
     Update ONE fixed row per round (L1–L5).
-    Idempotent. Never appends. Never deletes.
+    Idempotent.
+    No append.
+    No duplicates.
     """
 
     sheets = get_sheets_service()
     spreadsheet_id = _get_or_create_result_sheet(uid)
 
     sheet_name = "Sheet1"
-
-    # Header (safe overwrite)
-    header = [[
-        "UID",
-        "Candidate Name",
-        "Email",
-        "Round",
-        "Total Questions",
-        "Correct Answers",
-        "Score %",
-        "Focus Violations",
-        "Status",
-        "Last Updated",
-    ]]
-
-    sheets.spreadsheets().values().update(
-        spreadsheetId=spreadsheet_id,
-        range=f"{sheet_name}!A1:J1",
-        valueInputOption="RAW",
-        body={"values": header},
-    ).execute()
 
     ROUND_TO_ROW = {
         "L1": 2,

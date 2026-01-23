@@ -637,16 +637,15 @@ from src.utils.google_forms.form_api import get_drive_service
 
 GOOGLE_DRIVE_RESULTS_ROOT = "1pcXw5Rn-2z3YBULkkbTmiPo91P9xxjRm"
 from pathlib import Path
+import os
 import tempfile
 
-# ================================================================
-# LOCAL TEMP RESULTS DIR (OS-AWARE)
-# ================================================================
-if os.name == "nt":  # Windows (local dev)
-    LOCAL_TMP_DIR = Path(tempfile.gettempdir()) / "aziro_tmp_results"
-else:  # Linux (VM / prod)
-    LOCAL_TMP_DIR = Path("/opt/interview_app/tmp_results")
+BASE_TMP_DIR = os.environ.get(
+    "AZIRO_TMP_DIR",
+    tempfile.gettempdir() if os.name == "nt" else os.path.expanduser("~/.aziro_tmp")
+)
 
+LOCAL_TMP_DIR = Path(BASE_TMP_DIR) / "aziro_tmp_results"
 LOCAL_TMP_DIR.mkdir(parents=True, exist_ok=True)
 
 
