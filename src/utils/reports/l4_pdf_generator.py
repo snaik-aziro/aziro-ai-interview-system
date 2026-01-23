@@ -3,12 +3,23 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 
+# ✅ STEP 1: NEW IMPORTS (ONLY THESE)
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import Paragraph
+from reportlab.lib.units import inch
+
+from src.utils.analysis.summary_generator import (
+    generate_round_summary,
+    generate_l4_detailed_summary,
+    generate_overall_candidate_summary,
+)
+
 # =========================================================
 # THEME COLORS (ORG SAFE)
 # =========================================================
-HEADING_COLOR = colors.HexColor("#1F4FD8")   # Corporate Blue
+HEADING_COLOR = colors.HexColor("#1F4FD8")
 TEXT_COLOR = colors.black
-CODE_COLOR = colors.HexColor("#1F4FD8")      # Dark Purple (code)
+CODE_COLOR = colors.HexColor("#1F4FD8")
 
 PAGE_WIDTH, PAGE_HEIGHT = A4
 LEFT_MARGIN = 50
@@ -19,7 +30,7 @@ BOTTOM_MARGIN = 50
 def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) -> str:
     """
     Generates a clean, well-formatted PDF report.
-    DOES NOT change evaluation logic.
+    Evaluation logic untouched.
     """
 
     os.makedirs(output_dir, exist_ok=True)
@@ -84,6 +95,26 @@ def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) ->
         c.setFont("Helvetica", 10)
 
     # =====================================================
+    # ✅ STEP 2: NEW PARAGRAPH HELPER (ADDED ONLY)
+    # =====================================================
+    def write_paragraph(text, indent=20, max_width=PAGE_WIDTH - LEFT_MARGIN * 2):
+        nonlocal y
+
+        style = getSampleStyleSheet()["Normal"]
+        style.fontName = "Helvetica"
+        style.fontSize = 10
+        style.leading = 14
+
+        para = Paragraph(text, style)
+        w, h = para.wrap(max_width - indent, PAGE_HEIGHT)
+
+        if y - h < BOTTOM_MARGIN:
+            new_page()
+
+        para.drawOn(c, LEFT_MARGIN + indent, y - h)
+        y -= h + 6
+
+    # =====================================================
     # HEADER
     # =====================================================
     c.setFont("Helvetica-Bold", 11)
@@ -100,7 +131,7 @@ def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) ->
     y -= 20
 
     # =====================================================
-    # ALL ROUNDS (EXCEPT L4)
+    # NON-L4 ROUNDS (L1, L2, L3, L5, L6)
     # =====================================================
     for rnd in ["L1", "L2", "L3", "L5", "L6"]:
         res = all_results.get(rnd)
@@ -113,15 +144,14 @@ def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) ->
         write_text(f"Score %         : {res.get('score_percent', 0.0)}")
         write_text(f"Status          : {res.get('status', 'NO_RESPONSE')}")
 
-        summary = f"{rnd}: Not attempted."
-        if res.get("status") != "NO_RESPONSE":
-            summary = f"{rnd}: Performance recorded."
+        summary_text = generate_round_summary(rnd, res)
+        # ✅ STEP 3 (1): FIXED SUMMARY RENDERING
+        write_paragraph(f"<b>Summary :</b> {summary_text}")
 
-        write_text(f"Summary         : {summary}")
         y -= 10
 
     # =====================================================
-    # L4 DETAILED EVALUATION
+    # L4 CODING ROUND
     # =====================================================
     l4 = all_results.get("L4")
     if l4:
@@ -142,11 +172,11 @@ def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) ->
                 write_text(f"Correct  : {d.get('is_correct')}", indent=40)
                 y -= 6
 
-        # Evaluator summary
-        evaluator_summary = l4.get("evaluator_summary")
-        if evaluator_summary:
-            write_subheading("Evaluator Summary")
-            write_text(evaluator_summary, indent=20)
+        # L4 Summary
+        l4_summary = generate_l4_detailed_summary(l4)
+        write_subheading("Summary")
+        # ✅ STEP 3 (2): FIXED L4 SUMMARY
+        write_paragraph(l4_summary, indent=20)
 
         # Submitted code
         submitted_code = l4.get("submitted_code")
@@ -155,6 +185,14 @@ def generate_l4_pdf(output_dir: str, uid: str, cand: dict, all_results: dict) ->
             write_code_block(submitted_code)
         else:
             write_text("No code submission found.", indent=20)
+
+    # =====================================================
+    # OVERALL CANDIDATE SUMMARY
+    # =====================================================
+    write_heading("OVERALL CANDIDATE SUMMARY")
+    overall_summary = generate_overall_candidate_summary(all_results)
+    # ✅ STEP 3 (3): FIXED OVERALL SUMMARY
+    write_paragraph(overall_summary, indent=20)
 
     # =====================================================
     # FINALIZE
