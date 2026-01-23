@@ -1,9 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, flash, render_template, redirect, url_for, request, session
 import os
 import sys
 import time
 import socket
 import subprocess
+from authlib.integrations.flask_client import OAuth
+
+from dotenv import load_dotenv 
 from authlib.integrations.flask_client import OAuth
 
 from dotenv import load_dotenv 
@@ -184,16 +187,26 @@ def google_login():
 def google_callback():
     try:
         token = google.authorize_access_token()
-        # Use the discovered userinfo endpoint
         user_info = google.get(
             "https://openidconnect.googleapis.com/v1/userinfo"
         ).json()
 
         print("User info:", user_info)
 
+        email = user_info.get("email")
+
+        if not email or not email.endswith("@aziro.com"):
+            flash("Only aziro.com accounts are allowed.")
+            return redirect(url_for("login"))
+
         session["logged_in"] = True
-        session["username"] = user_info["email"]
+        session["username"] = email
+
+        if session.get("forgot_password_flow"):
+            session.pop("forgot_password_flow", None)
+
         return redirect(url_for("dashboard"))
+
     except Exception as e:
         print("OAuth error:", e)
         return f"OAuth failed: {e}", 400
@@ -329,6 +342,10 @@ def evaluation():
 def logout():
     session.clear()
     return redirect(url_for("login"))
+
+@app.route('/forgot-password-google')
+def forgot_password_google(): 
+    return redirect(url_for('google_login'))
 
 
 # -------------------------------------------------
