@@ -4,6 +4,9 @@ import sys
 import time
 import socket
 import subprocess
+from authlib.integrations.flask_client import OAuth
+
+from dotenv import load_dotenv 
 
 # PATH FIX
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -30,6 +33,20 @@ if PROJECT_ROOT not in sys.path:
 # -------------------------------------------------
 from generate_candidate_test import run_candidate_test_generation_by_role
 from src.utils.google_forms.create_all_forms import create_all_google_forms
+
+# ------------------------------------------------- 
+# GOOGLE OAUTH CONFIG
+# ------------------------------------------------- 
+load_dotenv()
+
+oauth = OAuth(app) 
+google = oauth.register( 
+    name="google", 
+    client_id=os.getenv("GOOGLE_CLIENT_ID"), 
+    client_secret=os.getenv("GOOGLE_CLIENT_SECRET"), 
+    server_metadata_url="https://accounts.google.com/.well-known/openid-configuration", 
+    client_kwargs={"scope": "openid email profile"} )
+
 
 # -------------------------------------------------
 # HELPERS
@@ -143,9 +160,44 @@ def get_round_label(role_key: str, round_key: str, domain: str | None):
 # -------------------------------------------------
 # ROUTES
 # -------------------------------------------------
-@app.route("/")
-def login():
-    return render_template("login.html")
+@app.route("/login", methods=["GET", "POST"]) 
+def login(): 
+    if request.method == "POST": 
+        username = request.form.get("username") 
+        password = request.form.get("password") 
+        if username and username.endswith("@aziro.com"): 
+            session["logged_in"] = True 
+            session["username"] = username 
+            return redirect(url_for("dashboard")) 
+        else: return render_template("login.html", error="Invalid credentials. Please try again.") 
+    return render_template("login.html") 
+
+@app.route("/google-login") 
+def google_login(): 
+    redirect_uri = url_for(
+        "google_callback", 
+        _external=True)
+    print("Redirect URI being used:", redirect_uri) # Debug line
+    return google.authorize_redirect(redirect_uri, prompt="login") 
+
+@app.route("/google-callback")
+def google_callback():
+    try:
+        token = google.authorize_access_token()
+        # Use the discovered userinfo endpoint
+        user_info = google.get(
+            "https://openidconnect.googleapis.com/v1/userinfo"
+        ).json()
+
+        print("User info:", user_info)
+
+        session["logged_in"] = True
+        session["username"] = user_info["email"]
+        return redirect(url_for("dashboard"))
+    except Exception as e:
+        print("OAuth error:", e)
+        return f"OAuth failed: {e}", 400
+
 
 
 @app.route("/dashboard")
