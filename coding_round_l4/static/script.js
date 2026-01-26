@@ -20,8 +20,9 @@ const TOTAL_TIME_SECONDS = 30 * 60;
 const STORAGE_KEYS = {
     START_TIME: "examStartTime",
     FOCUS_COUNT: "focusLostCount",
-    CODE: "savedCode"
+    CODE_PREFIX: "savedCode_"
 };
+
 
 // ===========================================================
 // STATE FLAGS
@@ -48,12 +49,17 @@ let tabViolations = parseInt(
 violationDisplay.textContent =
     tabViolations > 0 ? `Focus lost ${tabViolations} time(s)` : "Focus OK";
 
-const savedCode = sessionStorage.getItem(STORAGE_KEYS.CODE);
+const initialLang = langSelect.value || "python";
+const savedCode = sessionStorage.getItem(
+    STORAGE_KEYS.CODE_PREFIX + initialLang
+);
+
 if (savedCode !== null) {
     editor.value = savedCode;
 } else {
-    editor.value = STARTERS["python"];
+    editor.value = STARTERS[initialLang] || STARTERS["python"];
 }
+
 
 // ===========================================================
 // SAMPLE TESTS (LEFT PANEL) — UNCHANGED
@@ -146,8 +152,13 @@ document.addEventListener("visibilitychange", () => {
 // EDITOR AUTO-SAVE (REFRESH SAFE)
 // ===========================================================
 editor.addEventListener("input", () => {
-    sessionStorage.setItem(STORAGE_KEYS.CODE, editor.value);
+    const lang = langSelect.value || "python";
+    sessionStorage.setItem(
+        STORAGE_KEYS.CODE_PREFIX + lang,
+        editor.value
+    );
 });
+
 
 // ===========================================================
 // CORE API CALL
@@ -257,7 +268,19 @@ runHiddenBtn.addEventListener("click", runHiddenTests);
 submitBtn.addEventListener("click", submitTest);
 
 langSelect.addEventListener("change", () => {
-    editor.value = STARTERS[langSelect.value];
-    sessionStorage.setItem(STORAGE_KEYS.CODE, editor.value);
-    setOutput(`📝 ${langSelect.value.toUpperCase()} template loaded`);
+    const lang = langSelect.value;
+
+    const savedCode = sessionStorage.getItem(
+        STORAGE_KEYS.CODE_PREFIX + lang
+    );
+
+    if (savedCode !== null) {
+        editor.value = savedCode;
+    } else {
+        editor.value = STARTERS[lang] || STARTERS["python"];
+    }
+
+    setOutput(`📝 ${lang.toUpperCase()} template loaded`);
 });
+
+

@@ -1,23 +1,53 @@
+// executors/run_js.js
 const fs = require("fs");
-const { execSync } = require("child_process");
 
-function main() {
+let input = "";
+
+// Read ALL stdin
+process.stdin.on("data", chunk => {
+    input += chunk;
+});
+
+process.stdin.on("end", () => {
     try {
-        const input = JSON.parse(fs.readFileSync(0, "utf8"));
-        const code = input.code;
-        const args = input.args;
+        const payload = JSON.parse(input);
+        const code = payload.code;
+        const args = payload.args || [];
 
-        fs.writeFileSync("temp_user_code.js", code + `
-const result = solve(...(${JSON.stringify(args)}));
-console.log(result);
-        `);
+        // Wrap candidate code safely
+        const wrappedCode = `
+${code}
 
-        let output = execSync("node temp_user_code.js", { timeout: 5000 })
-            .toString()
-            .trim();
+let __result;
+try {
+    __result = solve(...${JSON.stringify(args)});
+} catch (e) {
+    console.error(e.toString());
+    process.exit(2);
+}
 
+if (__result !== undefined) {
+    if (typeof __result === "object") {
+        console.log(JSON.stringify(__result));
+    } else {
+        console.log(__result);
+    }
+}
+`;
+
+        // Write temp file
+        fs.writeFileSync("solution.js", wrappedCode);
+
+        // Execute
+        const { execSync } = require("child_process");
+        const output = execSync("node solution.js", {
+            timeout: 5000,
+            encoding: "utf-8"
+        });
+
+        // SUCCESS
         console.log(JSON.stringify({
-            stdout: output,
+            stdout: output.trim(),
             stderr: "",
             returncode: 0
         }));
@@ -26,9 +56,7 @@ console.log(result);
         console.log(JSON.stringify({
             stdout: "",
             stderr: err.toString(),
-            returncode: -1
+            returncode: 1
         }));
     }
-}
-
-main();
+});
