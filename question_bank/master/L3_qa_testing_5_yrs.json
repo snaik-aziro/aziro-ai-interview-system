@@ -2,10 +2,10 @@
   {
     "question": "In Selenium 4, what is the primary difference between W3C protocol and JSON Wire Protocol?",
     "options": [
-      "W3C is proprietary to Chrome while JSON Wire is universal",
-      "W3C is a W3C standard and JSON Wire Protocol is deprecated",
+      "W3C requires additional licensing",
       "JSON Wire Protocol is faster than W3C",
-      "W3C requires additional licensing"
+      "W3C is proprietary to Chrome while JSON Wire is universal",
+      "W3C is a W3C standard and JSON Wire Protocol is deprecated"
     ],
     "correct_answer": "W3C is a W3C standard and JSON Wire Protocol is deprecated",
     "topic": "Selenium WebDriver"
@@ -13,10 +13,10 @@
   {
     "question": "When using Selenium 4 with the W3C protocol, which capability flag ensures compatibility with older Selenium 3 implementations?",
     "options": [
-      "webdriver.chrome.version",
-      "goog:chromeOptions",
+      "useJsonWireProtocol",
       "seleniumProtocol",
-      "useJsonWireProtocol"
+      "goog:chromeOptions",
+      "webdriver.chrome.version"
     ],
     "correct_answer": "goog:chromeOptions",
     "topic": "Selenium WebDriver"
@@ -25,9 +25,9 @@
     "question": "In the Selenium architecture, what role does the Local WebDriver end represent?",
     "options": [
       "Manages browser lifecycle and executes commands",
-      "Connects to remote Selenium Grid",
       "Handles HTTP requests only",
-      "Manages test data only"
+      "Manages test data only",
+      "Connects to remote Selenium Grid"
     ],
     "correct_answer": "Manages browser lifecycle and executes commands",
     "topic": "Selenium WebDriver"
@@ -35,10 +35,10 @@
   {
     "question": "When configuring Selenium 4 with ChromeDriver, which parameter specifies the port for local webdriver communication?",
     "options": [
-      "port",
-      "localPort",
       "webdriverPort",
-      "chromePort"
+      "localPort",
+      "chromePort",
+      "port"
     ],
     "correct_answer": "port",
     "topic": "Selenium WebDriver"
@@ -46,10 +46,10 @@
   {
     "question": "In Selenium Grid architecture, what is the primary responsibility of the Hub node?",
     "options": [
+      "Monitor network traffic only",
       "Execute test scripts on the browser",
-      "Route session requests to appropriate Node",
       "Store test data and manage test cases",
-      "Monitor network traffic only"
+      "Route session requests to appropriate Node"
     ],
     "correct_answer": "Route session requests to appropriate Node",
     "topic": "Selenium WebDriver"
@@ -57,10 +57,10 @@
   {
     "question": "When a Selenium Grid Node goes offline, how should the Hub handle incoming requests for that Node?",
     "options": [
-      "Automatically restart the Node",
-      "Mark the Node as unavailable and route to other Nodes",
       "Throw immediate timeout error",
-      "Queue requests indefinitely"
+      "Mark the Node as unavailable and route to other Nodes",
+      "Queue requests indefinitely",
+      "Automatically restart the Node"
     ],
     "correct_answer": "Mark the Node as unavailable and route to other Nodes",
     "topic": "Selenium WebDriver"
@@ -69,9 +69,9 @@
     "question": "In Selenium 4 architecture, what is the significance of the Remote WebDriver endpoint?",
     "options": [
       "It only supports Safari browser",
-      "It communicates with remote browser instances via HTTP",
+      "It manages only test data",
       "It replaces local WebDriver completely",
-      "It manages only test data"
+      "It communicates with remote browser instances via HTTP"
     ],
     "correct_answer": "It communicates with remote browser instances via HTTP",
     "topic": "Selenium WebDriver"
@@ -81,8 +81,8 @@
     "options": [
       "Only the Hub",
       "Browser and Node with standalone or standalone-chrome image",
-      "Only the test scripts",
-      "Only the database"
+      "Only the database",
+      "Only the test scripts"
     ],
     "correct_answer": "Browser and Node with standalone or standalone-chrome image",
     "topic": "Selenium WebDriver"
@@ -91,9 +91,9 @@
     "question": "In the W3C WebDriver protocol, what does the /session endpoint return after successful browser initialization?",
     "options": [
       "Browser version string only",
-      "Session ID and browser capabilities",
       "List of all browser drivers",
-      "Network configuration details"
+      "Network configuration details",
+      "Session ID and browser capabilities"
     ],
     "correct_answer": "Session ID and browser capabilities",
     "topic": "Selenium WebDriver"
@@ -101,10 +101,10 @@
   {
     "question": "When Selenium Grid is configured with multiple Node machines, what protocol is used for Hub-Node communication?",
     "options": [
+      "FTP protocol",
       "TCP only",
       "HTTP/HTTPS REST API",
-      "Websockets exclusively",
-      "FTP protocol"
+      "Websockets exclusively"
     ],
     "correct_answer": "HTTP/HTTPS REST API",
     "topic": "Selenium WebDriver"
@@ -112,10 +112,10 @@
   {
     "question": "Which XPath axis is used to locate an element's parent in a deeply nested DOM structure?",
     "options": [
-      "ancestor",
       "parent",
+      "following",
       "preceding-sibling",
-      "following"
+      "ancestor"
     ],
     "correct_answer": "parent",
     "topic": "Selenium WebDriver"
@@ -123,9 +123,9 @@
   {
     "question": "When using dynamic XPath with following-sibling axis, what is the typical use case?",
     "options": [
+      "Finding the element's grandparent",
       "Finding elements above the current element",
       "Finding elements below the current element that share the same parent",
-      "Finding the element's grandparent",
       "Finding elements in a different DOM branch"
     ],
     "correct_answer": "Finding elements below the current element that share the same parent",
@@ -134,10 +134,10 @@
   {
     "question": "In CSS selectors, what is the difference between using '>' and ' ' (space) combinator?",
     "options": [
-      "'>' selects immediate children, space selects all descendants",
       "Space is faster than '>'",
+      "'>' is deprecated in modern CSS",
       "Both have identical functionality",
-      "'>' is deprecated in modern CSS"
+      "'>' selects immediate children, space selects all descendants"
     ],
     "correct_answer": "'>' selects immediate children, space selects all descendants",
     "topic": "Selenium WebDriver"
@@ -146,9 +146,9 @@
     "question": "When handling Shadow DOM elements in Selenium 4, what is the recommended approach?",
     "options": [
       "Use regular XPath as Shadow DOM is transparent",
-      "Use getShadowRoot() method and query elements within shadow tree",
       "Shadow DOM cannot be automated with Selenium",
-      "Use only CSS selectors without shadow penetration"
+      "Use only CSS selectors without shadow penetration",
+      "Use getShadowRoot() method and query elements within shadow tree"
     ],
     "correct_answer": "Use getShadowRoot() method and query elements within shadow tree",
     "topic": "Selenium WebDriver"
@@ -156,10 +156,10 @@
   {
     "question": "Which XPath axis would you use to find all preceding elements in the DOM tree before the current element?",
     "options": [
-      "ancestor",
       "preceding",
       "ancestor-or-self",
-      "preceding-or-self"
+      "preceding-or-self",
+      "ancestor"
     ],
     "correct_answer": "preceding",
     "topic": "Selenium WebDriver"
@@ -167,10 +167,10 @@
   {
     "question": "When using CSS attribute selectors for dynamic attributes, what syntax locates elements with attributes containing specific values?",
     "options": [
-      "[attr*=value]",
-      "[attr$=value]",
       "[attr^=value]",
-      "[attr=value]"
+      "[attr=value]",
+      "[attr*=value]",
+      "[attr$=value]"
     ],
     "correct_answer": "[attr*=value]",
     "topic": "Selenium WebDriver"
@@ -178,10 +178,10 @@
   {
     "question": "In a QA automation scenario with nested iFrames, how should you locate elements in the inner-most iFrame?",
     "options": [
-      "Switch to outer iFrame first, then switch to nested iFrame",
       "XPath automatically traverses all iFrames",
+      "Use JavaScriptExecutor to bypass iFrame boundaries",
       "iFrames cannot contain locatable elements",
-      "Use JavaScriptExecutor to bypass iFrame boundaries"
+      "Switch to outer iFrame first, then switch to nested iFrame"
     ],
     "correct_answer": "Switch to outer iFrame first, then switch to nested iFrame",
     "topic": "Selenium WebDriver"
@@ -189,10 +189,10 @@
   {
     "question": "When using XPath text() function for dynamic elements with varying whitespace, what approach is most robust?",
     "options": [
-      "Use exact text match only",
       "Use contains() with normalize-space() function",
-      "Avoid text-based locators entirely",
-      "XPath text() is unreliable for automation"
+      "Use exact text match only",
+      "XPath text() is unreliable for automation",
+      "Avoid text-based locators entirely"
     ],
     "correct_answer": "Use contains() with normalize-space() function",
     "topic": "Selenium WebDriver"
@@ -200,9 +200,9 @@
   {
     "question": "In CSS selectors, how do you target an element that is the first child of its parent?",
     "options": [
-      ":first-of-type",
-      ":first-child",
       ":nth-child(1)",
+      ":first-child",
+      ":first-of-type",
       "All of the above are equivalent"
     ],
     "correct_answer": ":first-child",
@@ -211,9 +211,9 @@
   {
     "question": "When a web application dynamically loads elements via JavaScript, which locator strategy is most affected by timing?",
     "options": [
-      "Static XPath",
       "Dynamic XPath with wait conditions",
       "CSS selectors",
+      "Static XPath",
       "ID-based locators"
     ],
     "correct_answer": "Dynamic XPath with wait conditions",
@@ -222,10 +222,10 @@
   {
     "question": "What is the key difference between implicit wait and explicit wait in Selenium?",
     "options": [
-      "Implicit is global, explicit is scoped to specific element conditions",
       "Implicit is faster than explicit",
-      "Explicit cannot handle StaleElementReferenceException",
-      "Implicit waits are preferred in modern Selenium"
+      "Implicit is global, explicit is scoped to specific element conditions",
+      "Implicit waits are preferred in modern Selenium",
+      "Explicit cannot handle StaleElementReferenceException"
     ],
     "correct_answer": "Implicit is global, explicit is scoped to specific element conditions",
     "topic": "Selenium WebDriver"
@@ -233,10 +233,10 @@
   {
     "question": "When using Explicit Wait with WebDriverWait, what exception is thrown if the condition is not met within timeout?",
     "options": [
-      "NoSuchElementException",
       "TimeoutException",
+      "WaitException",
       "InterruptedException",
-      "WaitException"
+      "NoSuchElementException"
     ],
     "correct_answer": "TimeoutException",
     "topic": "Selenium WebDriver"
@@ -244,9 +244,9 @@
   {
     "question": "In Selenium, what is the main purpose of Fluent Wait compared to WebDriverWait?",
     "options": [
-      "Fluent Wait is faster",
       "Fluent Wait allows custom polling interval and ignored exceptions",
       "Fluent Wait is deprecated",
+      "Fluent Wait is faster",
       "They are identical"
     ],
     "correct_answer": "Fluent Wait allows custom polling interval and ignored exceptions",
@@ -255,10 +255,10 @@
   {
     "question": "When using ExpectedConditions.presenceOfElementLocated(), what does 'presence' specifically mean?",
     "options": [
-      "Element is visible on the page",
-      "Element exists in DOM regardless of visibility",
       "Element has CSS styling applied",
-      "Element is clickable"
+      "Element is visible on the page",
+      "Element is clickable",
+      "Element exists in DOM regardless of visibility"
     ],
     "correct_answer": "Element exists in DOM regardless of visibility",
     "topic": "Selenium WebDriver"
@@ -266,10 +266,10 @@
   {
     "question": "Which ExpectedCondition should be used when you need to click an element that might be covered by an overlay?",
     "options": [
-      "presenceOfElementLocated",
       "elementToBeClickable",
+      "presenceOfAllElementsLocatedBy",
       "visibilityOfElementLocated",
-      "presenceOfAllElementsLocatedBy"
+      "presenceOfElementLocated"
     ],
     "correct_answer": "elementToBeClickable",
     "topic": "Selenium WebDriver"
@@ -277,10 +277,10 @@
   {
     "question": "In a scenario with AJAX requests completing before element visibility, what is the appropriate wait strategy?",
     "options": [
-      "Rely on implicit wait only",
-      "Use explicit wait for element visibility after AJAX completion",
+      "Wait conditions are unnecessary",
       "Use Thread.sleep()",
-      "Wait conditions are unnecessary"
+      "Use explicit wait for element visibility after AJAX completion",
+      "Rely on implicit wait only"
     ],
     "correct_answer": "Use explicit wait for element visibility after AJAX completion",
     "topic": "Selenium WebDriver"
@@ -289,9 +289,9 @@
     "question": "When handling TimeoutException during explicit wait, what should be verified in test logs?",
     "options": [
       "Only the timeout duration",
-      "Whether condition was met, expected elements, DOM state before timeout",
       "Browser version number",
-      "Network connectivity only"
+      "Network connectivity only",
+      "Whether condition was met, expected elements, DOM state before timeout"
     ],
     "correct_answer": "Whether condition was met, expected elements, DOM state before timeout",
     "topic": "Selenium WebDriver"
@@ -299,8 +299,8 @@
   {
     "question": "What is the relationship between implicit wait timeout and explicit wait timeout when both are configured?",
     "options": [
-      "Implicit timeout overrides explicit",
       "Explicit timeout is checked in addition to implicit timeout",
+      "Implicit timeout overrides explicit",
       "They cancel each other out",
       "Only one can be used at a time"
     ],
@@ -310,10 +310,10 @@
   {
     "question": "When using Fluent Wait with ignoreException(StaleElementReferenceException.class), what behavior occurs?",
     "options": [
-      "StaleElementReferenceException is caught and poll continues",
-      "Test fails immediately on StaleElementReferenceException",
+      "Exception is logged only",
       "Element is automatically refreshed",
-      "Exception is logged only"
+      "Test fails immediately on StaleElementReferenceException",
+      "StaleElementReferenceException is caught and poll continues"
     ],
     "correct_answer": "StaleElementReferenceException is caught and poll continues",
     "topic": "Selenium WebDriver"
@@ -321,10 +321,10 @@
   {
     "question": "In Selenium 4, what is the significance of the wait condition for 'stalenessOf' an element?",
     "options": [
-      "Waits until element is visible",
-      "Waits until element is no longer attached to DOM",
+      "Waits until element is loaded",
       "Waits until element becomes clickable",
-      "Waits until element is loaded"
+      "Waits until element is no longer attached to DOM",
+      "Waits until element is visible"
     ],
     "correct_answer": "Waits until element is no longer attached to DOM",
     "topic": "Selenium WebDriver"
@@ -332,10 +332,10 @@
   {
     "question": "When using Actions class for drag-and-drop in Selenium, what is the correct method sequence?",
     "options": [
-      "dragAndDrop(source, target) directly",
-      "moveToElement(source).clickAndHold().moveToElement(target).release().perform()",
       "Only dragAndDrop() method exists",
-      "Drag-and-drop cannot be automated with Actions"
+      "Drag-and-drop cannot be automated with Actions",
+      "moveToElement(source).clickAndHold().moveToElement(target).release().perform()",
+      "dragAndDrop(source, target) directly"
     ],
     "correct_answer": "moveToElement(source).clickAndHold().moveToElement(target).release().perform()",
     "topic": "Selenium WebDriver"
@@ -343,10 +343,10 @@
   {
     "question": "What is the difference between Actions.doubleClick() and manually clicking twice with click()?",
     "options": [
-      "No difference, both trigger click event twice",
-      "doubleClick() triggers native double-click event with single DOM event",
+      "doubleClick() is not supported in Selenium",
       "click() twice is more reliable",
-      "doubleClick() is not supported in Selenium"
+      "doubleClick() triggers native double-click event with single DOM event",
+      "No difference, both trigger click event twice"
     ],
     "correct_answer": "doubleClick() triggers native double-click event with single DOM event",
     "topic": "Selenium WebDriver"
@@ -354,10 +354,10 @@
   {
     "question": "When using Actions.moveToElement() for hover operations, what should happen after movement?",
     "options": [
-      "Hover automatically triggers mouseenter event",
       "Must call perform() to execute the action chain",
       "No further action needed",
-      "Must click after hover"
+      "Must click after hover",
+      "Hover automatically triggers mouseenter event"
     ],
     "correct_answer": "Must call perform() to execute the action chain",
     "topic": "Selenium WebDriver"
@@ -365,9 +365,9 @@
   {
     "question": "In what scenario would you use Robot class instead of Actions class in Selenium?",
     "options": [
-      "Robot is always preferred",
-      "For OS-level interactions like keyboard shortcuts, file uploads outside browser",
       "Robot cannot interact with web elements",
+      "For OS-level interactions like keyboard shortcuts, file uploads outside browser",
+      "Robot is always preferred",
       "Robot is deprecated"
     ],
     "correct_answer": "For OS-level interactions like keyboard shortcuts, file uploads outside browser",
@@ -376,8 +376,8 @@
   {
     "question": "When performing multi-element drag operations, what does Actions.dragAndDrop(source, target).perform() return?",
     "options": [
-      "The target element",
       "The source element",
+      "The target element",
       "Void/null after performing the action",
       "A boolean indicating success"
     ],
@@ -388,8 +388,8 @@
     "question": "How should you handle interactions with dynamically positioned elements that may move during action execution?",
     "options": [
       "Ignore positioning changes",
-      "Use wait conditions to ensure element is stable before interaction",
       "Actions automatically handle dynamic positioning",
+      "Use wait conditions to ensure element is stable before interaction",
       "Reposition elements using JavaScriptExecutor"
     ],
     "correct_answer": "Use wait conditions to ensure element is stable before interaction",
@@ -400,8 +400,8 @@
     "options": [
       "Alt modifier",
       "Shift key pressed during click",
-      "Ctrl modifier",
-      "Caps Lock toggle"
+      "Caps Lock toggle",
+      "Ctrl modifier"
     ],
     "correct_answer": "Shift key pressed during click",
     "topic": "Selenium WebDriver"
@@ -409,10 +409,10 @@
   {
     "question": "In Selenium, what is the purpose of Actions.pause() method?",
     "options": [
-      "Pauses execution like Thread.sleep()",
-      "Adds time delay within action chain before next action",
       "Pauses the browser",
-      "Cancels the action chain"
+      "Cancels the action chain",
+      "Adds time delay within action chain before next action",
+      "Pauses execution like Thread.sleep()"
     ],
     "correct_answer": "Adds time delay within action chain before next action",
     "topic": "Selenium WebDriver"
@@ -421,9 +421,9 @@
     "question": "When performing context menu operations, what key combination should be used with Actions class?",
     "options": [
       "Right-click via contextClick() method",
-      "Shift + Click",
       "Alt + Click",
-      "Context menus cannot be automated"
+      "Context menus cannot be automated",
+      "Shift + Click"
     ],
     "correct_answer": "Right-click via contextClick() method",
     "topic": "Selenium WebDriver"
@@ -432,8 +432,8 @@
     "question": "How do you chain multiple Actions operations without calling perform() between each operation?",
     "options": [
       "Each operation requires separate perform() call",
-      "Chain operations and call perform() once at the end",
       "Actions cannot be chained",
+      "Chain operations and call perform() once at the end",
       "Chaining is not recommended"
     ],
     "correct_answer": "Chain operations and call perform() once at the end",
@@ -442,10 +442,10 @@
   {
     "question": "When switching between multiple browser windows opened via target='_blank', what identifier should be used?",
     "options": [
+      "Cannot switch between windows",
       "Window number",
       "Window handle obtained from driver.getWindowHandles()",
-      "Window title only",
-      "Cannot switch between windows"
+      "Window title only"
     ],
     "correct_answer": "Window handle obtained from driver.getWindowHandles()",
     "topic": "Selenium WebDriver"
@@ -453,8 +453,8 @@
   {
     "question": "In a scenario with nested iFrames (iFrame within iFrame), how should context switching be performed?",
     "options": [
-      "Switch directly to innermost iFrame",
       "Switch to parent iFrame first, then to nested iFrame",
+      "Switch directly to innermost iFrame",
       "Use switchTo().parentFrame() instead",
       "Nested iFrames cannot be automated"
     ],
@@ -464,10 +464,10 @@
   {
     "question": "After switching to an iFrame, how do you switch back to the main page content?",
     "options": [
-      "switchTo().defaultContent()",
       "switchTo().parentContent()",
       "switchTo().mainFrame()",
-      "No method exists for switching back"
+      "No method exists for switching back",
+      "switchTo().defaultContent()"
     ],
     "correct_answer": "switchTo().defaultContent()",
     "topic": "Selenium WebDriver"
@@ -476,9 +476,9 @@
     "question": "When handling a web application with dynamically created iFrames, what challenge occurs with iFrame switching?",
     "options": [
       "iFrame IDs are always consistent",
-      "iFrame IDs or names may change, requiring dynamic locators",
+      "No special handling is needed",
       "iFrames cannot be tested dynamically",
-      "No special handling is needed"
+      "iFrame IDs or names may change, requiring dynamic locators"
     ],
     "correct_answer": "iFrame IDs or names may change, requiring dynamic locators",
     "topic": "Selenium WebDriver"
@@ -486,10 +486,10 @@
   {
     "question": "In Selenium 4, what method retrieves all window handles currently open in the session?",
     "options": [
-      "getWindow()",
       "getWindowHandle()",
-      "getWindowHandles()",
-      "getAllWindows()"
+      "getAllWindows()",
+      "getWindow()",
+      "getWindowHandles()"
     ],
     "correct_answer": "getWindowHandles()",
     "topic": "Selenium WebDriver"
@@ -497,10 +497,10 @@
   {
     "question": "When a new window opens via JavaScript window.open(), what must happen before accessing elements in that window?",
     "options": [
-      "Nothing, elements are accessible automatically",
-      "Driver must switch to the new window handle",
+      "The window cannot be accessed",
       "A new WebDriver instance must be created",
-      "The window cannot be accessed"
+      "Driver must switch to the new window handle",
+      "Nothing, elements are accessible automatically"
     ],
     "correct_answer": "Driver must switch to the new window handle",
     "topic": "Selenium WebDriver"
@@ -508,10 +508,10 @@
   {
     "question": "What is the difference between switchTo().window() and switchTo().frame()?",
     "options": [
-      "No difference",
+      "frame() applies to all browser windows",
       "window() switches browser windows/tabs, frame() switches iFrames within same window",
-      "window() is deprecated",
-      "frame() applies to all browser windows"
+      "No difference",
+      "window() is deprecated"
     ],
     "correct_answer": "window() switches browser windows/tabs, frame() switches iFrames within same window",
     "topic": "Selenium WebDriver"
@@ -520,8 +520,8 @@
     "question": "In a test with multiple pop-up windows, how should you handle window order unpredictability?",
     "options": [
       "Assume first window is always the popup",
-      "Use window title/URL to identify and switch to specific window",
       "Pop-ups appear in consistent order",
+      "Use window title/URL to identify and switch to specific window",
       "Pop-ups cannot be reliably handled"
     ],
     "correct_answer": "Use window title/URL to identify and switch to specific window",
@@ -530,10 +530,10 @@
   {
     "question": "When switching to an alert dialog using switchTo().alert(), what happens if no alert is present?",
     "options": [
-      "Returns null",
-      "Throws NoAlertPresentException",
       "Waits for alert to appear",
-      "Creates a new alert"
+      "Creates a new alert",
+      "Throws NoAlertPresentException",
+      "Returns null"
     ],
     "correct_answer": "Throws NoAlertPresentException",
     "topic": "Selenium WebDriver"
@@ -542,9 +542,9 @@
     "question": "After handling an alert with alert.accept() or alert.dismiss(), what is the WebDriver context?",
     "options": [
       "Remains on alert context",
-      "Reverts to previous web page context",
       "Requires explicit context switch",
-      "Context is undefined"
+      "Context is undefined",
+      "Reverts to previous web page context"
     ],
     "correct_answer": "Reverts to previous web page context",
     "topic": "Selenium WebDriver"
@@ -563,10 +563,10 @@
   {
     "question": "In JavaScriptExecutor, what is the difference between executeScript() and executeAsyncScript()?",
     "options": [
-      "No difference",
-      "executeScript() executes synchronously, executeAsyncScript() allows asynchronous completion",
       "executeAsyncScript() is faster",
-      "executeScript() cannot modify DOM"
+      "executeScript() cannot modify DOM",
+      "No difference",
+      "executeScript() executes synchronously, executeAsyncScript() allows asynchronous completion"
     ],
     "correct_answer": "executeScript() executes synchronously, executeAsyncScript() allows asynchronous completion",
     "topic": "Selenium WebDriver"
@@ -575,9 +575,9 @@
     "question": "When clicking a hidden element using JavaScriptExecutor, what should be the last action?",
     "options": [
       "Just modify display property",
-      "Use click() method after making element visible via display or opacity",
+      "Use click() even without visibility",
       "Hidden elements cannot be clicked",
-      "Use click() even without visibility"
+      "Use click() method after making element visible via display or opacity"
     ],
     "correct_answer": "Use click() method after making element visible via display or opacity",
     "topic": "Selenium WebDriver"
@@ -585,10 +585,10 @@
   {
     "question": "What is the correct syntax to get page title using JavaScriptExecutor in Selenium?",
     "options": [
-      "executor.executeScript(\"return document.getTitle()\")",
-      "executor.executeScript(\"return document.title\")",
       "executor.executeScript(\"return title\")",
-      "Cannot retrieve page title via JavaScriptExecutor"
+      "Cannot retrieve page title via JavaScriptExecutor",
+      "executor.executeScript(\"return document.getTitle()\")",
+      "executor.executeScript(\"return document.title\")"
     ],
     "correct_answer": "executor.executeScript(\"return document.title\")",
     "topic": "Selenium WebDriver"
@@ -596,10 +596,10 @@
   {
     "question": "When using JavaScriptExecutor to modify DOM attributes, what is the typical use case in QA automation?",
     "options": [
+      "Attributes should never be changed",
       "Avoid attribute modification as it violates test principles",
       "Modify read-only or protected attributes for test scenarios",
-      "JavaScriptExecutor cannot modify attributes",
-      "Attributes should never be changed"
+      "JavaScriptExecutor cannot modify attributes"
     ],
     "correct_answer": "Modify read-only or protected attributes for test scenarios",
     "topic": "Selenium WebDriver"
@@ -629,10 +629,10 @@
   {
     "question": "When passing WebElement objects to JavaScriptExecutor as parameters, how are they accessible in JavaScript?",
     "options": [
+      "Must convert to strings first",
       "As JavaScript objects directly",
-      "Elements are automatically converted to DOM nodes",
       "Elements cannot be passed as parameters",
-      "Must convert to strings first"
+      "Elements are automatically converted to DOM nodes"
     ],
     "correct_answer": "Elements are automatically converted to DOM nodes",
     "topic": "Selenium WebDriver"
@@ -652,9 +652,9 @@
     "question": "When using JavaScriptExecutor to handle AJAX requests, what should be checked before proceeding?",
     "options": [
       "Just wait a fixed duration",
-      "Check jQuery.active or XMLHttpRequest readyState before proceeding",
       "AJAX cannot be verified",
-      "Skip verification in automation"
+      "Skip verification in automation",
+      "Check jQuery.active or XMLHttpRequest readyState before proceeding"
     ],
     "correct_answer": "Check jQuery.active or XMLHttpRequest readyState before proceeding",
     "topic": "Selenium WebDriver"
@@ -662,10 +662,10 @@
   {
     "question": "What causes StaleElementReferenceException in Selenium and how should it be handled?",
     "options": [
-      "Network timeout during element access",
+      "Browser version incompatibility",
       "Element was removed from DOM and needs to be re-located, handle with retry logic or fresh locator",
       "Element is hidden",
-      "Browser version incompatibility"
+      "Network timeout during element access"
     ],
     "correct_answer": "Element was removed from DOM and needs to be re-located, handle with retry logic or fresh locator",
     "topic": "Selenium WebDriver"
@@ -673,9 +673,9 @@
   {
     "question": "When does NoSuchElementException occur in Selenium and what is the appropriate recovery strategy?",
     "options": [
-      "Element exists but is not visible",
-      "Element doesn't exist in DOM; verify locator, DOM structure, or use explicit wait",
       "Browser crashed",
+      "Element doesn't exist in DOM; verify locator, DOM structure, or use explicit wait",
+      "Element exists but is not visible",
       "Selenium version issue"
     ],
     "correct_answer": "Element doesn't exist in DOM; verify locator, DOM structure, or use explicit wait",
@@ -684,10 +684,10 @@
   {
     "question": "In a QA test with UnhandledAlertException, what indicates the root cause?",
     "options": [
-      "Alert was expected and properly handled",
       "Unexpected alert appeared during execution; must handle alert before continuing",
-      "Alert handling is not supported",
-      "Test execution is incomplete"
+      "Alert was expected and properly handled",
+      "Test execution is incomplete",
+      "Alert handling is not supported"
     ],
     "correct_answer": "Unexpected alert appeared during execution; must handle alert before continuing",
     "topic": "Selenium WebDriver"
@@ -696,9 +696,9 @@
     "question": "What is the relationship between TimeoutException and implicit/explicit waits?",
     "options": [
       "TimeoutException only occurs with implicit wait",
-      "Thrown when explicit wait condition is not met within timeout period",
       "TimeoutException indicates network failure",
-      "No relationship exists"
+      "No relationship exists",
+      "Thrown when explicit wait condition is not met within timeout period"
     ],
     "correct_answer": "Thrown when explicit wait condition is not met within timeout period",
     "topic": "Selenium WebDriver"
@@ -706,10 +706,10 @@
   {
     "question": "When handling InvalidElementStateException, what scenario typically causes it?",
     "options": [
-      "Element is not found",
       "Attempting interaction with disabled or read-only element; verify element state before interaction",
-      "Browser version issue",
-      "Driver not initialized"
+      "Element is not found",
+      "Driver not initialized",
+      "Browser version issue"
     ],
     "correct_answer": "Attempting interaction with disabled or read-only element; verify element state before interaction",
     "topic": "Selenium WebDriver"
@@ -718,9 +718,9 @@
     "question": "What does InvalidSessionIdException indicate in Selenium Grid environment?",
     "options": [
       "Session was terminated or Node crashed; re-establish session",
+      "WebDriver version mismatch",
       "Element locator is incorrect",
-      "Browser window closed",
-      "WebDriver version mismatch"
+      "Browser window closed"
     ],
     "correct_answer": "Session was terminated or Node crashed; re-establish session",
     "topic": "Selenium WebDriver"
@@ -730,8 +730,8 @@
     "options": [
       "Test is poorly written",
       "Element exists but is covered by overlay or off-screen; use scrolling or wait for visibility",
-      "Network latency",
-      "Always a false failure"
+      "Always a false failure",
+      "Network latency"
     ],
     "correct_answer": "Element exists but is covered by overlay or off-screen; use scrolling or wait for visibility",
     "topic": "Selenium WebDriver"
@@ -740,8 +740,8 @@
     "question": "What should be checked when NoSuchSessionException occurs in Selenium Grid?",
     "options": [
       "Element was not found",
-      "WebDriver session ID is invalid or Node crashed; recreate driver",
       "Browser incompatibility",
+      "WebDriver session ID is invalid or Node crashed; recreate driver",
       "Test timeout"
     ],
     "correct_answer": "WebDriver session ID is invalid or Node crashed; recreate driver",
@@ -750,10 +750,10 @@
   {
     "question": "When handling WebDriverException as a general exception, what information is crucial for debugging?",
     "options": [
-      "Only the exception message",
       "Exception type, message, stack trace, screenshot, and browser logs",
-      "Browser type only",
-      "Test duration"
+      "Only the exception message",
+      "Test duration",
+      "Browser type only"
     ],
     "correct_answer": "Exception type, message, stack trace, screenshot, and browser logs",
     "topic": "Selenium WebDriver"
@@ -761,8 +761,8 @@
   {
     "question": "In a test with ScreenshotException during failure capture, what is the appropriate handling?",
     "options": [
-      "Ignore the exception",
       "Log exception but continue execution to verify test state",
+      "Ignore the exception",
       "Stop test immediately",
       "Screenshots are not necessary"
     ],
@@ -772,10 +772,10 @@
   {
     "question": "In Selenium Grid setup, what is the role of the Hub in a distributed testing environment?",
     "options": [
-      "Executes test scripts",
+      "Manages test data",
       "Acts as a central router that receives requests and distributes them to Nodes",
-      "Stores test results",
-      "Manages test data"
+      "Executes test scripts",
+      "Stores test results"
     ],
     "correct_answer": "Acts as a central router that receives requests and distributes them to Nodes",
     "topic": "Selenium WebDriver"
@@ -783,9 +783,9 @@
   {
     "question": "When configuring multiple Nodes in Selenium Grid, what parameter ensures each Node is unique?",
     "options": [
-      "Node name",
-      "nodeId or unique identifier",
       "Browser type only",
+      "nodeId or unique identifier",
+      "Node name",
       "Machine IP alone"
     ],
     "correct_answer": "nodeId or unique identifier",
@@ -795,8 +795,8 @@
     "question": "In Selenium Grid with Docker containerization, what is the advantage of isolated containers per Node?",
     "options": [
       "No advantage",
-      "Each Node runs independently without OS conflicts; multiple browsers on same machine",
       "Docker containers are slower",
+      "Each Node runs independently without OS conflicts; multiple browsers on same machine",
       "Containers cannot communicate"
     ],
     "correct_answer": "Each Node runs independently without OS conflicts; multiple browsers on same machine",
@@ -805,10 +805,10 @@
   {
     "question": "When a Hub node receives a request that no Node can fulfill, what is the expected behavior?",
     "options": [
-      "Request is queued indefinitely",
-      "Hub returns error; session cannot be created if no matching Node",
       "Automatically creates new Node",
-      "Hub retries eternally"
+      "Request is queued indefinitely",
+      "Hub retries eternally",
+      "Hub returns error; session cannot be created if no matching Node"
     ],
     "correct_answer": "Hub returns error; session cannot be created if no matching Node",
     "topic": "Selenium WebDriver"
@@ -816,10 +816,10 @@
   {
     "question": "In parallel execution with Selenium Grid, what metric should be monitored to prevent resource exhaustion?",
     "options": [
-      "Test execution time only",
-      "Browser instances, memory usage per Node, and session limits",
+      "Disk space only",
       "Network bandwidth",
-      "Disk space only"
+      "Test execution time only",
+      "Browser instances, memory usage per Node, and session limits"
     ],
     "correct_answer": "Browser instances, memory usage per Node, and session limits",
     "topic": "Selenium WebDriver"
@@ -828,9 +828,9 @@
     "question": "When setting up Selenium Grid with browser capabilities, what happens if requested capability is not available?",
     "options": [
       "Hub modifies requested capabilities",
+      "Random Node is assigned",
       "Session creation fails; error indicates unavailable capability",
-      "Hub waits for Node to support capability",
-      "Random Node is assigned"
+      "Hub waits for Node to support capability"
     ],
     "correct_answer": "Session creation fails; error indicates unavailable capability",
     "topic": "Selenium WebDriver"
@@ -838,9 +838,9 @@
   {
     "question": "In a Dockerized Selenium Grid, what is the typical network configuration between Hub and Nodes?",
     "options": [
-      "Direct network socket connection",
       "Docker network bridge allowing inter-container communication via HTTP",
       "Nodes cannot communicate with Hub in Docker",
+      "Direct network socket connection",
       "Requires manual network setup"
     ],
     "correct_answer": "Docker network bridge allowing inter-container communication via HTTP",
@@ -849,10 +849,10 @@
   {
     "question": "When scaling Selenium Grid horizontally with multiple Nodes, what becomes a potential bottleneck?",
     "options": [
-      "Browser installation",
-      "Hub capacity to route requests; may require load balancing",
       "Network cables",
-      "All systems scale infinitely"
+      "Hub capacity to route requests; may require load balancing",
+      "All systems scale infinitely",
+      "Browser installation"
     ],
     "correct_answer": "Hub capacity to route requests; may require load balancing",
     "topic": "Selenium WebDriver"
@@ -860,10 +860,10 @@
   {
     "question": "In a Selenium Grid with scheduled cleanup, what should be terminated after test completion?",
     "options": [
-      "Hub process",
+      "Entire Grid infrastructure",
       "WebDriver session and browser instance to free resources",
       "Node process",
-      "Entire Grid infrastructure"
+      "Hub process"
     ],
     "correct_answer": "WebDriver session and browser instance to free resources",
     "topic": "Selenium WebDriver"
@@ -871,8 +871,8 @@
   {
     "question": "When monitoring Selenium Grid performance, what indicates Node saturation?",
     "options": [
-      "High CPU usage",
       "Session queue buildup and timeout errors; new requests cannot be fulfilled",
+      "High CPU usage",
       "High memory",
       "Low disk space"
     ],
@@ -882,9 +882,9 @@
   {
     "question": "What is the primary difference between GET and POST in terms of request data?",
     "options": [
+      "Both are identical",
       "GET uses request body for data, POST uses query parameters",
       "GET uses query parameters/URL, POST uses request body",
-      "Both are identical",
       "GET is deprecated"
     ],
     "correct_answer": "GET uses query parameters/URL, POST uses request body",
@@ -894,9 +894,9 @@
     "question": "In RESTful API design, what is the idempotency property of GET, PUT, and DELETE methods?",
     "options": [
       "All methods are idempotent",
-      "GET, PUT, DELETE are idempotent; multiple calls produce same result",
+      "No methods are idempotent",
       "POST is idempotent",
-      "No methods are idempotent"
+      "GET, PUT, DELETE are idempotent; multiple calls produce same result"
     ],
     "correct_answer": "GET, PUT, DELETE are idempotent; multiple calls produce same result",
     "topic": "API Testing Basics"
@@ -904,8 +904,8 @@
   {
     "question": "When should PUT method be used instead of PATCH in REST APIs?",
     "options": [
-      "PUT replaces entire resource, PATCH modifies specific fields",
       "PUT modifies single field, PATCH replaces entire resource",
+      "PUT replaces entire resource, PATCH modifies specific fields",
       "Both are identical",
       "PATCH is not supported"
     ],
@@ -917,8 +917,8 @@
     "options": [
       "POST calls are faster",
       "Multiple POST calls may create duplicate resources; each call produces new resource",
-      "POST is less secure",
-      "POST cannot be used safely"
+      "POST cannot be used safely",
+      "POST is less secure"
     ],
     "correct_answer": "Multiple POST calls may create duplicate resources; each call produces new resource",
     "topic": "API Testing Basics"
@@ -926,10 +926,10 @@
   {
     "question": "In a QA test scenario requiring idempotent operations, which HTTP methods are safe to retry?",
     "options": [
-      "POST and PATCH",
-      "GET, PUT, DELETE can be safely retried without side effects",
       "All methods are equally safe",
-      "No methods are safe"
+      "GET, PUT, DELETE can be safely retried without side effects",
+      "No methods are safe",
+      "POST and PATCH"
     ],
     "correct_answer": "GET, PUT, DELETE can be safely retried without side effects",
     "topic": "API Testing Basics"
@@ -937,9 +937,9 @@
   {
     "question": "What happens when DELETE is called on a resource that doesn't exist?",
     "options": [
+      "Always fails",
       "Same behavior as deleting existing resource",
       "Idempotent: returns success or appropriate status (404 or 204) consistently",
-      "Always fails",
       "Creates new resource"
     ],
     "correct_answer": "Idempotent: returns success or appropriate status (404 or 204) consistently",
@@ -948,8 +948,8 @@
   {
     "question": "In API testing with concurrent requests, how does idempotency prevent data corruption?",
     "options": [
-      "Idempotency has no effect on concurrency",
       "Idempotent operations ensure consistent state even with duplicate concurrent calls",
+      "Idempotency has no effect on concurrency",
       "Concurrency is always unsafe",
       "Idempotency slows down requests"
     ],
@@ -960,9 +960,9 @@
     "question": "What is the difference between a safe method and an idempotent method in HTTP?",
     "options": [
       "No difference",
-      "Safe methods don't modify resources; idempotent methods produce same result on repeated calls",
+      "Idempotent is deprecated",
       "Safe is faster",
-      "Idempotent is deprecated"
+      "Safe methods don't modify resources; idempotent methods produce same result on repeated calls"
     ],
     "correct_answer": "Safe methods don't modify resources; idempotent methods produce same result on repeated calls",
     "topic": "API Testing Basics"
@@ -970,10 +970,10 @@
   {
     "question": "Which HTTP method should be used for retrieving data without side effects?",
     "options": [
-      "POST",
-      "GET - it is safe and idempotent",
       "PUT",
-      "DELETE"
+      "DELETE",
+      "GET - it is safe and idempotent",
+      "POST"
     ],
     "correct_answer": "GET - it is safe and idempotent",
     "topic": "API Testing Basics"
@@ -981,10 +981,10 @@
   {
     "question": "In test automation with retryable requests, why are idempotent operations critical?",
     "options": [
-      "They improve response time",
-      "They ensure repeated retries don't cause unintended side effects or duplicates",
       "They reduce server load",
-      "They are not necessary"
+      "They ensure repeated retries don't cause unintended side effects or duplicates",
+      "They are not necessary",
+      "They improve response time"
     ],
     "correct_answer": "They ensure repeated retries don't cause unintended side effects or duplicates",
     "topic": "API Testing Basics"
@@ -992,10 +992,10 @@
   {
     "question": "What does HTTP status code 201 indicate?",
     "options": [
-      "Request accepted",
       "Resource created successfully",
       "Content moved",
-      "Server error"
+      "Server error",
+      "Request accepted"
     ],
     "correct_answer": "Resource created successfully",
     "topic": "API Testing Basics"
@@ -1005,8 +1005,8 @@
     "options": [
       "No difference",
       "400 is malformed syntax, 422 is well-formed but semantically invalid data",
-      "422 is always an error",
-      "400 is deprecated"
+      "400 is deprecated",
+      "422 is always an error"
     ],
     "correct_answer": "400 is malformed syntax, 422 is well-formed but semantically invalid data",
     "topic": "API Testing Basics"
@@ -1014,10 +1014,10 @@
   {
     "question": "When should HTTP 301 (Moved Permanently) be used instead of 302 (Found)?",
     "options": [
+      "302 is preferred",
       "When redirect is permanent and clients should update bookmarks",
-      "Both are identical",
       "301 is faster",
-      "302 is preferred"
+      "Both are identical"
     ],
     "correct_answer": "When redirect is permanent and clients should update bookmarks",
     "topic": "API Testing Basics"
@@ -1025,10 +1025,10 @@
   {
     "question": "What does HTTP 429 status code signify in API rate limiting context?",
     "options": [
-      "Request accepted",
-      "Too many requests; client has exceeded rate limit and should retry after delay",
+      "Authentication failure",
       "Server overloaded",
-      "Authentication failure"
+      "Too many requests; client has exceeded rate limit and should retry after delay",
+      "Request accepted"
     ],
     "correct_answer": "Too many requests; client has exceeded rate limit and should retry after delay",
     "topic": "API Testing Basics"
@@ -1038,8 +1038,8 @@
     "options": [
       "4xx are client errors (retry without change), 5xx are server errors (may retry with exponential backoff)",
       "Both require identical handling",
-      "5xx should be ignored",
-      "4xx require client modification"
+      "4xx require client modification",
+      "5xx should be ignored"
     ],
     "correct_answer": "4xx are client errors (retry without change), 5xx are server errors (may retry with exponential backoff)",
     "topic": "API Testing Basics"
@@ -1047,10 +1047,10 @@
   {
     "question": "What is the purpose of HTTP 204 (No Content) response?",
     "options": [
-      "Request failed",
-      "Operation succeeded but no response body needed (e.g., successful DELETE)",
       "Response is empty by mistake",
-      "Client error"
+      "Request failed",
+      "Client error",
+      "Operation succeeded but no response body needed (e.g., successful DELETE)"
     ],
     "correct_answer": "Operation succeeded but no response body needed (e.g., successful DELETE)",
     "topic": "API Testing Basics"
@@ -1059,9 +1059,9 @@
     "question": "When testing API error scenarios, what should be verified for 401 vs 403 status codes?",
     "options": [
       "Both indicate same error",
-      "401 is authentication failure, 403 is authorization failure (authenticated but not allowed)",
+      "401 is deprecated",
       "403 is always a server error",
-      "401 is deprecated"
+      "401 is authentication failure, 403 is authorization failure (authenticated but not allowed)"
     ],
     "correct_answer": "401 is authentication failure, 403 is authorization failure (authenticated but not allowed)",
     "topic": "API Testing Basics"
@@ -1071,8 +1071,8 @@
     "options": [
       "Resource not found",
       "Client cache is valid; no new content needed (based on ETag/Last-Modified)",
-      "Request succeeded",
-      "Authentication failed"
+      "Authentication failed",
+      "Request succeeded"
     ],
     "correct_answer": "Client cache is valid; no new content needed (based on ETag/Last-Modified)",
     "topic": "API Testing Basics"
@@ -1080,10 +1080,10 @@
   {
     "question": "What is appropriate behavior when receiving HTTP 503 (Service Unavailable)?",
     "options": [
-      "Proceed with request immediately",
+      "Continue without retry",
       "Implement retry logic with exponential backoff and check Retry-After header",
       "Fail the test immediately",
-      "Continue without retry"
+      "Proceed with request immediately"
     ],
     "correct_answer": "Implement retry logic with exponential backoff and check Retry-After header",
     "topic": "API Testing Basics"
@@ -1103,9 +1103,9 @@
     "question": "In REST Assured BDD syntax, what is the purpose of the given() method?",
     "options": [
       "Executes the request",
+      "Logs response data",
       "Sets up request specifications and preconditions",
-      "Validates response",
-      "Logs response data"
+      "Validates response"
     ],
     "correct_answer": "Sets up request specifications and preconditions",
     "topic": "REST Assured"
@@ -1113,9 +1113,9 @@
   {
     "question": "When using REST Assured validations with Hamcrest matchers, what does equalTo() verify?",
     "options": [
-      "Greater than comparison",
-      "Exact value equality",
       "Contains substring",
+      "Exact value equality",
+      "Greater than comparison",
       "Starts with comparison"
     ],
     "correct_answer": "Exact value equality",
@@ -1124,10 +1124,10 @@
   {
     "question": "In REST Assured with RequestSpecBuilder, how are common headers and base URI configured?",
     "options": [
-      "Configured in each test individually",
-      "Built once and reused across multiple tests to avoid duplication",
       "RequestSpecBuilder is not recommended",
-      "Headers cannot be reused"
+      "Headers cannot be reused",
+      "Configured in each test individually",
+      "Built once and reused across multiple tests to avoid duplication"
     ],
     "correct_answer": "Built once and reused across multiple tests to avoid duplication",
     "topic": "REST Assured"
@@ -1135,10 +1135,10 @@
   {
     "question": "What is the purpose of log().ifValidationFails() in REST Assured?",
     "options": [
-      "Logs all requests",
-      "Logs request and response only if assertion fails for debugging",
+      "Disables logging",
       "Logs success responses",
-      "Disables logging"
+      "Logs request and response only if assertion fails for debugging",
+      "Logs all requests"
     ],
     "correct_answer": "Logs request and response only if assertion fails for debugging",
     "topic": "REST Assured"
@@ -1146,10 +1146,10 @@
   {
     "question": "When validating JSON arrays in REST Assured, what Hamcrest matcher checks if array contains specific item?",
     "options": [
+      "hasSize()",
       "contains()",
       "hasItems()",
-      "equalTo()",
-      "hasSize()"
+      "equalTo()"
     ],
     "correct_answer": "hasItems()",
     "topic": "REST Assured"
@@ -1157,10 +1157,10 @@
   {
     "question": "In REST Assured JSON path extraction, how do you get nested values like response.user.name?",
     "options": [
-      "response.path(\"user.name\")",
       "response.get(\"user.name\")",
-      "Both are equivalent",
-      "Cannot extract nested values"
+      "Cannot extract nested values",
+      "response.path(\"user.name\")",
+      "Both are equivalent"
     ],
     "correct_answer": "response.path(\"user.name\")",
     "topic": "REST Assured"
@@ -1168,10 +1168,10 @@
   {
     "question": "When using REST Assured with POJO deserialization, what libraries can be used for mapping?",
     "options": [
-      "Only Jackson",
-      "Jackson or Gson for automatic JSON-to-Java object mapping",
       "Manual mapping required",
-      "REST Assured does not support deserialization"
+      "Only Jackson",
+      "REST Assured does not support deserialization",
+      "Jackson or Gson for automatic JSON-to-Java object mapping"
     ],
     "correct_answer": "Jackson or Gson for automatic JSON-to-Java object mapping",
     "topic": "REST Assured"
@@ -1180,9 +1180,9 @@
     "question": "What is the purpose of ResponseSpecBuilder in REST Assured?",
     "options": [
       "Builds request specifications",
-      "Creates reusable response validation specifications across multiple tests",
       "Only for logging",
-      "ResponseSpecBuilder is deprecated"
+      "ResponseSpecBuilder is deprecated",
+      "Creates reusable response validation specifications across multiple tests"
     ],
     "correct_answer": "Creates reusable response validation specifications across multiple tests",
     "topic": "REST Assured"
@@ -1190,10 +1190,10 @@
   {
     "question": "In REST Assured XPath validation, when should you use XPath instead of JsonPath?",
     "options": [
-      "XPath is always faster",
-      "XPath is used for XML responses, JsonPath for JSON responses",
       "Both are equivalent",
-      "XPath is deprecated"
+      "XPath is always faster",
+      "XPath is deprecated",
+      "XPath is used for XML responses, JsonPath for JSON responses"
     ],
     "correct_answer": "XPath is used for XML responses, JsonPath for JSON responses",
     "topic": "REST Assured"
@@ -1201,10 +1201,10 @@
   {
     "question": "When validating response body with multiple assertions in REST Assured, what happens if first assertion fails?",
     "options": [
-      "All assertions are executed",
+      "Assertions are reordered",
       "Execution stops at first failure; subsequent assertions are skipped",
       "Second assertion overrides first",
-      "Assertions are reordered"
+      "All assertions are executed"
     ],
     "correct_answer": "Execution stops at first failure; subsequent assertions are skipped",
     "topic": "REST Assured"
@@ -1212,10 +1212,10 @@
   {
     "question": "What is the execution order of TestNG annotations in a test class?",
     "options": [
-      "@BeforeClass, @BeforeMethod, @Test, @AfterMethod, @AfterClass",
       "Random order",
-      "@Test always first",
-      "Order is configurable"
+      "@BeforeClass, @BeforeMethod, @Test, @AfterMethod, @AfterClass",
+      "Order is configurable",
+      "@Test always first"
     ],
     "correct_answer": "@BeforeClass, @BeforeMethod, @Test, @AfterMethod, @AfterClass",
     "topic": "TestNG Framework"
@@ -1223,10 +1223,10 @@
   {
     "question": "In TestNG, what is the difference between @DataProvider and @Parameters?",
     "options": [
+      "DataProvider is deprecated",
       "No difference",
       "@DataProvider provides data via method returning Object[][] array, @Parameters via XML",
-      "Both require XML",
-      "DataProvider is deprecated"
+      "Both require XML"
     ],
     "correct_answer": "@DataProvider provides data via method returning Object[][] array, @Parameters via XML",
     "topic": "TestNG Framework"
@@ -1234,10 +1234,10 @@
   {
     "question": "When using TestNG groups, what is the purpose of grouping tests?",
     "options": [
-      "Improves execution speed",
-      "Allows selective test execution; run specific groups via testng.xml",
       "Groups are not useful",
-      "Mandatory for all tests"
+      "Allows selective test execution; run specific groups via testng.xml",
+      "Mandatory for all tests",
+      "Improves execution speed"
     ],
     "correct_answer": "Allows selective test execution; run specific groups via testng.xml",
     "topic": "TestNG Framework"
@@ -1245,10 +1245,10 @@
   {
     "question": "In TestNG parallel execution with testng.xml, what does parallel=\"methods\" mean?",
     "options": [
-      "Parallelize test classes",
-      "Execute test methods concurrently within and across classes",
       "Execute sequentially despite configuration",
-      "Parallel execution is not supported"
+      "Execute test methods concurrently within and across classes",
+      "Parallel execution is not supported",
+      "Parallelize test classes"
     ],
     "correct_answer": "Execute test methods concurrently within and across classes",
     "topic": "TestNG Framework"
@@ -1256,10 +1256,10 @@
   {
     "question": "When using TestNG IRetryAnalyzer, what is its purpose?",
     "options": [
-      "Retries all failed tests",
+      "Disables failure reporting",
       "Retries only specific failed tests based on custom logic before marking as failed",
       "Prevents test failure",
-      "Disables failure reporting"
+      "Retries all failed tests"
     ],
     "correct_answer": "Retries only specific failed tests based on custom logic before marking as failed",
     "topic": "TestNG Framework"
@@ -1267,10 +1267,10 @@
   {
     "question": "In TestNG, what is the difference between hard assert and soft assert?",
     "options": [
-      "Hard assert is faster",
       "Hard assert stops execution on failure, soft assert collects all failures and reports at end",
+      "Soft assert is not supported",
       "Both are identical",
-      "Soft assert is not supported"
+      "Hard assert is faster"
     ],
     "correct_answer": "Hard assert stops execution on failure, soft assert collects all failures and reports at end",
     "topic": "TestNG Framework"
@@ -1279,9 +1279,9 @@
     "question": "When using ITestListener in TestNG, which method is called after test completion regardless of result?",
     "options": [
       "onTestStart()",
-      "onTestFinish()",
+      "onTestEnd()",
       "onFinish()",
-      "onTestEnd()"
+      "onTestFinish()"
     ],
     "correct_answer": "onFinish()",
     "topic": "TestNG Framework"
@@ -1289,10 +1289,10 @@
   {
     "question": "In TestNG, what is the purpose of @BeforeSuite annotation?",
     "options": [
-      "Executes before each test method",
-      "Executes once before all tests in entire suite",
       "Executes after suite",
-      "Executes for each test class"
+      "Executes for each test class",
+      "Executes before each test method",
+      "Executes once before all tests in entire suite"
     ],
     "correct_answer": "Executes once before all tests in entire suite",
     "topic": "TestNG Framework"
@@ -1300,10 +1300,10 @@
   {
     "question": "When using dependsOnMethods in TestNG, what happens if dependency fails?",
     "options": [
-      "Dependent test still executes",
-      "Dependent test is skipped; does not count as failure",
+      "Order is ignored",
       "Parent test is marked failed",
-      "Order is ignored"
+      "Dependent test still executes",
+      "Dependent test is skipped; does not count as failure"
     ],
     "correct_answer": "Dependent test is skipped; does not count as failure",
     "topic": "TestNG Framework"
