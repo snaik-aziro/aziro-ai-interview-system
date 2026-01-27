@@ -5,7 +5,11 @@ from pathlib import Path
 # -------------------------------------------------
 # SESSION ID
 # -------------------------------------------------
-SESSION_ID = os.environ.get("AZIRO_SESSION_ID", "LOCAL")
+SESSION_ID = (
+    os.environ.get("AZIRO_SESSION_ID")
+    or os.environ.get("UI_PORT")
+    or "LOCAL"
+)
 
 # -------------------------------------------------
 # STATE DIRECTORY (ENV-BASED, DEV SAFE)
