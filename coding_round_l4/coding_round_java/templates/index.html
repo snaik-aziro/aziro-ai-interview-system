@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Coding Round</title>
+    <link rel="stylesheet" href="/static/styles.css">
+
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="brand">Java Coding Round</div>
+    <div class="top-right">
+        <div id="timer-display">30:00</div>
+        <div id="score-display">Score: 0/0</div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="left-panel">
+    <h2 id="question-title">{{ question.title }}</h2>
+
+    <p id="question-desc">
+        {{ question.description | e | replace('\n','<br>') | safe }}
+    </p>
+
+    <h3>Sample Tests</h3>
+    <div id="sample-tests"></div>
+
+    <!-- ✅ INSTRUCTIONS / NOTE -->
+    <div class="note">
+        <strong>Note:</strong><br>
+        • <b>Run</b> → Executes public test cases<br>
+        • <b>Run Hidden Tests</b> → Executes hidden tests (practice, no submit)<br>
+        • <b>Submit</b> → Final submission (locks the test)
+    </div>
+</section>
+
+
+    <section class="right-panel">
+    <label class="editor-label">
+        Write your solution (implement <code>solve</code>)
+    </label>
+
+    <textarea id="editor" spellcheck="false"></textarea>
+
+
+        <div class="button-row">
+            <button id="run-btn">Run</button>
+            <button id="run-hidden-btn">Run Hidden Tests</button>
+            <button id="submit-btn">Submit</button>
+        </div>
+
+        <pre id="output-box">Ready.</pre>
+    </section>
+</main>
+
+<script>
+    const QUESTION = {{ question | tojson }};
+    const STARTER = {{ starter | tojson }};
+</script><!DOCTYPE html>
+<html>
+<head>
+    <title>Java Coding Round</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="brand">Java Coding Round</div>
+    <div class="top-right">
+        <div id="timer-display">30:00</div>
+        <div id="score-display">Score: 0/0</div>
+        <div id="violation-display">Focus OK</div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="left-panel">
+        <h2>{{ question.title }}</h2>
+        <p>{{ question.description }}</p>
+
+        <h3>Sample Tests</h3>
+        <div id="sample-tests"></div>
+    </section>
+
+    <section class="right-panel">
+        <textarea id="editor"></textarea>
+
+        <div class="button-row">
+            <button id="run-btn">Run</button>
+            <button id="run-hidden-btn">Run Hidden Tests</button>
+            <button id="submit-btn">Submit</button>
+        </div>
+
+        <pre id="output-box">Ready.</pre>
+    </section>
+</main>
+
+<script>
+    const QUESTION = {{ question | tojson }};
+    const STARTER = {{ starter | tojson }};
+</script>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
+
+
+
+<script src="/static/script.js"></script>
+</body>
+</html>

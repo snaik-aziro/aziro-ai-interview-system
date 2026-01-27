@@ -1,0 +1,188 @@
+{
+  "id": 6,
+  "title": "Find Greatest and Smallest",
+  "difficulty": "EASY",
+  "description": "Write a program to find the greatest and smallest number present in the list.",
+  "function": {
+    "python": "def solve(nums):",
+    "javascript": "function solve(nums) {",
+    "java": {
+      "class": "Solution",
+      "method": "public static int[] solve(int[] nums)"
+    }
+  },
+  "public_tests": [
+    {
+      "input": [
+        [
+          45,
+          7,
+          32,
+          567,
+          90,
+          54,
+          99
+        ]
+      ],
+      "expected": [
+        567,
+        7
+      ]
+    },
+    {
+      "input": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected": [
+        3,
+        1
+      ]
+    },
+    {
+      "input": [
+        [
+          5
+        ]
+      ],
+      "expected": [
+        5,
+        5
+      ]
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": [
+        [
+          10,
+          20,
+          30
+        ]
+      ],
+      "expected": [
+        30,
+        10
+      ]
+    },
+    {
+      "input": [
+        [
+          100,
+          50
+        ]
+      ],
+      "expected": [
+        100,
+        50
+      ]
+    },
+    {
+      "input": [
+        [
+          9,
+          9,
+          9
+        ]
+      ],
+      "expected": [
+        9,
+        9
+      ]
+    },
+    {
+      "input": [
+        [
+          1,
+          100,
+          50,
+          75
+        ]
+      ],
+      "expected": [
+        100,
+        1
+      ]
+    },
+    {
+      "input": [
+        [
+          50,
+          25,
+          75,
+          100
+        ]
+      ],
+      "expected": [
+        100,
+        25
+      ]
+    },
+    {
+      "input": [
+        [
+          0
+        ]
+      ],
+      "expected": [
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        [
+          -5,
+          -10,
+          -1
+        ]
+      ],
+      "expected": [
+        -1,
+        -10
+      ]
+    },
+    {
+      "input": [
+        [
+          1,
+          -1
+        ]
+      ],
+      "expected": [
+        1,
+        -1
+      ]
+    },
+    {
+      "input": [
+        [
+          15,
+          8,
+          23,
+          4
+        ]
+      ],
+      "expected": [
+        23,
+        4
+      ]
+    },
+    {
+      "input": [
+        [
+          999,
+          1,
+          500
+        ]
+      ],
+      "expected": [
+        999,
+        1
+      ]
+    }
+  ]
+}
