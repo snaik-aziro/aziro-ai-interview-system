@@ -2,10 +2,10 @@
   {
     "question": "What will be the output of the following code?\nint x = 5;\nint y = x++;\nSystem.out.println(x + \" \" + y);",
     "options": [
-      "5 5",
-      "6 5",
+      "6 6",
       "5 6",
-      "6 6"
+      "5 5",
+      "6 5"
     ],
     "correct_answer": "6 5",
     "topic": "Java Fundamentals"
@@ -13,10 +13,10 @@
   {
     "question": "What is the output of this code?\nInteger a = 100;\nInteger b = 100;\nSystem.out.println(a == b);",
     "options": [
-      "true",
-      "false",
+      "Runtime exception",
       "Compilation error",
-      "Runtime exception"
+      "false",
+      "true"
     ],
     "correct_answer": "true",
     "topic": "Java Fundamentals"
@@ -25,9 +25,9 @@
     "question": "What will be the output?\nlong x = 5L;\nlong y = 5;\nSystem.out.println(x == y);",
     "options": [
       "true",
-      "false",
       "Compilation error",
-      "Runtime exception"
+      "Runtime exception",
+      "false"
     ],
     "correct_answer": "true",
     "topic": "Java Fundamentals"
@@ -35,10 +35,10 @@
   {
     "question": "What will be printed?\nbyte b = 127;\nb = b + 1;\nSystem.out.println(b);",
     "options": [
-      "128",
-      "-128",
       "Compilation error",
-      "0"
+      "-128",
+      "0",
+      "128"
     ],
     "correct_answer": "Compilation error",
     "topic": "Java Fundamentals"
@@ -46,10 +46,10 @@
   {
     "question": "What is the result of this code?\ndouble d = 0.1 + 0.2;\nSystem.out.println(d == 0.3);",
     "options": [
+      "0.30000000000000004",
       "true",
-      "false",
       "Compilation error",
-      "0.30000000000000004"
+      "false"
     ],
     "correct_answer": "false",
     "topic": "Java Fundamentals"
@@ -57,10 +57,10 @@
   {
     "question": "What will be the output?\nint x = 5;\nint y = 2;\nSystem.out.println(x / y);",
     "options": [
-      "2.5",
-      "2",
       "3",
-      "Compilation error"
+      "2",
+      "Compilation error",
+      "2.5"
     ],
     "correct_answer": "2",
     "topic": "Java Fundamentals"
@@ -69,9 +69,9 @@
     "question": "What is the output of this code?\nboolean result = 5 > 3 && 2 < 1;\nSystem.out.println(result);",
     "options": [
       "true",
-      "false",
+      "null",
       "Compilation error",
-      "null"
+      "false"
     ],
     "correct_answer": "false",
     "topic": "Java Fundamentals"
@@ -81,8 +81,8 @@
     "options": [
       "True",
       "False",
-      "Compilation error",
-      "10"
+      "10",
+      "Compilation error"
     ],
     "correct_answer": "True",
     "topic": "Control Flow & Logic"
@@ -91,9 +91,9 @@
     "question": "What will be printed?\nint x = 1;\nswitch(x) {\n    case 1:\n        System.out.println(\"One\");\n    case 2:\n        System.out.println(\"Two\");\n    default:\n        System.out.println(\"Default\");\n}",
     "options": [
       "One",
-      "One Two Default",
       "Two Default",
-      "One Two"
+      "One Two",
+      "One Two Default"
     ],
     "correct_answer": "One Two Default",
     "topic": "Control Flow & Logic"
@@ -101,10 +101,10 @@
   {
     "question": "What is the output?\nint i = 0;\nwhile (i < 5) {\n    System.out.println(i);\n    i++;\n}",
     "options": [
+      "Infinite loop",
       "0 1 2 3 4",
       "0 1 2 3 4 5",
-      "1 2 3 4 5",
-      "Infinite loop"
+      "1 2 3 4 5"
     ],
     "correct_answer": "0 1 2 3 4",
     "topic": "Control Flow & Logic"
@@ -112,10 +112,10 @@
   {
     "question": "What will be the output?\nfor (int i = 0; i < 3; i++) {\n    if (i == 1) continue;\n    System.out.println(i);\n}",
     "options": [
-      "0 1 2",
       "0 2",
+      "0 1",
       "1",
-      "0 1"
+      "0 1 2"
     ],
     "correct_answer": "0 2",
     "topic": "Control Flow & Logic"
@@ -123,9 +123,9 @@
   {
     "question": "What is printed?\nint x = 5;\nSystem.out.println((x > 3) ? \"Greater\" : \"Less\");",
     "options": [
+      "null",
       "Greater",
       "Less",
-      "null",
       "Compilation error"
     ],
     "correct_answer": "Greater",
@@ -134,10 +134,10 @@
   {
     "question": "What will be the output?\nint count = 0;\nwhile (true) {\n    count++;\n    if (count == 3) break;\n}\nSystem.out.println(count);",
     "options": [
-      "2",
       "3",
+      "4",
       "Infinite loop",
-      "4"
+      "2"
     ],
     "correct_answer": "3",
     "topic": "Control Flow & Logic"
@@ -146,9 +146,9 @@
     "question": "What is the output?\nint x = 10;\nif (x > 5 && x < 15)\n    System.out.println(\"In range\");\nelse\n    System.out.println(\"Out of range\");",
     "options": [
       "In range",
-      "Out of range",
       "Compilation error",
-      "Both printed"
+      "Both printed",
+      "Out of range"
     ],
     "correct_answer": "In range",
     "topic": "Control Flow & Logic"
@@ -156,10 +156,10 @@
   {
     "question": "What will be the output?\nint[] arr = new int[3];\nSystem.out.println(arr[0]);",
     "options": [
-      "0",
       "null",
       "ArrayIndexOutOfBoundsException",
-      "Compilation error"
+      "Compilation error",
+      "0"
     ],
     "correct_answer": "0",
     "topic": "Arrays & Strings"
@@ -167,10 +167,10 @@
   {
     "question": "What is the output?\nString s1 = new String(\"Hello\");\nString s2 = new String(\"Hello\");\nSystem.out.println(s1 == s2);",
     "options": [
-      "true",
-      "false",
       "Compilation error",
-      "null"
+      "null",
+      "true",
+      "false"
     ],
     "correct_answer": "false",
     "topic": "Arrays & Strings"
@@ -178,10 +178,10 @@
   {
     "question": "What will be printed?\nString s = \"Java\";\ns.concat(\" Programming\");\nSystem.out.println(s);",
     "options": [
-      "Java Programming",
       "Java",
+      "null",
       "Compilation error",
-      "null"
+      "Java Programming"
     ],
     "correct_answer": "Java",
     "topic": "Arrays & Strings"
@@ -189,10 +189,10 @@
   {
     "question": "What is the output?\nString s1 = \"Test\";\nString s2 = \"Test\";\nSystem.out.println(s1.equals(s2));",
     "options": [
-      "true",
       "false",
-      "Compilation error",
-      "null"
+      "true",
+      "null",
+      "Compilation error"
     ],
     "correct_answer": "true",
     "topic": "Arrays & Strings"
@@ -200,9 +200,9 @@
   {
     "question": "What will be the output?\nint[] arr = {1, 2, 3, 4, 5};\nSystem.out.println(arr[5]);",
     "options": [
-      "5",
-      "0",
       "null",
+      "0",
+      "5",
       "ArrayIndexOutOfBoundsException"
     ],
     "correct_answer": "ArrayIndexOutOfBoundsException",
@@ -211,9 +211,9 @@
   {
     "question": "What is printed?\nint[][] matrix = new int[2][3];\nSystem.out.println(matrix.length);",
     "options": [
-      "2",
       "3",
       "6",
+      "2",
       "Compilation error"
     ],
     "correct_answer": "2",
@@ -222,10 +222,10 @@
   {
     "question": "What will be the output?\nStringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" Code\");\nSystem.out.println(sb);",
     "options": [
-      "Java Code",
       "Java",
-      "Compilation error",
-      "null"
+      "Java Code",
+      "null",
+      "Compilation error"
     ],
     "correct_answer": "Java Code",
     "topic": "Arrays & Strings"
@@ -233,10 +233,10 @@
   {
     "question": "What will happen?\nclass A {\n    A() {\n        System.out.println(\"Constructor A\");\n    }\n}\nA obj = new A();",
     "options": [
-      "Prints 'Constructor A'",
       "Compilation error",
+      "Nothing printed",
       "Runtime exception",
-      "Nothing printed"
+      "Prints 'Constructor A'"
     ],
     "correct_answer": "Prints 'Constructor A'",
     "topic": "OOP Basics"
@@ -244,9 +244,9 @@
   {
     "question": "What is the issue with this code?\nclass Parent {\n    void display() { }\n}\nclass Child extends Parent {\n    void display(int x) { }\n}\nParent p = new Child();\np.display();",
     "options": [
-      "Compilation error",
       "Runtime exception",
       "Calls Parent's display()",
+      "Compilation error",
       "Calls Child's display()"
     ],
     "correct_answer": "Calls Parent's display()",
@@ -255,10 +255,10 @@
   {
     "question": "What will be printed?\nclass A {\n    public void show() { System.out.println(\"A\"); }\n}\nclass B extends A {\n    public void show() { System.out.println(\"B\"); }\n}\nA obj = new B();\nobj.show();",
     "options": [
-      "A",
-      "B",
       "Compilation error",
-      "A B"
+      "A",
+      "A B",
+      "B"
     ],
     "correct_answer": "B",
     "topic": "OOP Basics"
@@ -266,10 +266,10 @@
   {
     "question": "What is the output?\nclass A {\n    private int x = 10;\n    public int getX() { return x; }\n}\nA obj = new A();\nSystem.out.println(obj.x);",
     "options": [
-      "10",
       "Compilation error",
+      "null",
       "0",
-      "null"
+      "10"
     ],
     "correct_answer": "Compilation error",
     "topic": "OOP Basics"
@@ -277,10 +277,10 @@
   {
     "question": "What will be printed?\nclass A {\n    public A() { System.out.println(\"A\"); }\n}\nclass B extends A {\n    public B() { System.out.println(\"B\"); }\n}\nnew B();",
     "options": [
-      "B",
-      "A B",
+      "Compilation error",
       "A",
-      "Compilation error"
+      "A B",
+      "B"
     ],
     "correct_answer": "A B",
     "topic": "OOP Basics"
@@ -289,9 +289,9 @@
     "question": "What will be printed?\nclass A {\n    int x = 5;\n    void display() {\n        int x = 10;\n        System.out.println(x);\n    }\n}\nnew A().display();",
     "options": [
       "5",
-      "10",
       "Compilation error",
-      "15"
+      "15",
+      "10"
     ],
     "correct_answer": "10",
     "topic": "OOP Basics"
@@ -299,8 +299,8 @@
   {
     "question": "What will be the output?\nList<Integer> list = new ArrayList<>();\nlist.add(1);\nlist.add(2);\nlist.add(1);\nSystem.out.println(list.size());",
     "options": [
-      "2",
       "3",
+      "2",
       "1",
       "Compilation error"
     ],
@@ -310,10 +310,10 @@
   {
     "question": "What is printed?\nSet<Integer> set = new HashSet<>();\nset.add(1);\nset.add(2);\nset.add(1);\nSystem.out.println(set.size());",
     "options": [
-      "2",
-      "3",
+      "Compilation error",
       "1",
-      "Compilation error"
+      "3",
+      "2"
     ],
     "correct_answer": "2",
     "topic": "Collections"
@@ -321,10 +321,10 @@
   {
     "question": "What will happen?\nList<Integer> list = new ArrayList<>();\nfor (Integer num : list) {\n    System.out.println(num);\n}",
     "options": [
-      "Prints nothing",
-      "NullPointerException",
+      "Infinite loop",
       "Compilation error",
-      "Infinite loop"
+      "NullPointerException",
+      "Prints nothing"
     ],
     "correct_answer": "Prints nothing",
     "topic": "Collections"
@@ -332,10 +332,10 @@
   {
     "question": "What is the output?\nList<String> list = new ArrayList<>();\nlist.add(\"A\");\nlist.add(\"B\");\nlist.add(\"A\");\nfor (String s : list) {\n    System.out.print(s + \" \");\n}",
     "options": [
-      "A B ",
-      "A B A ",
       "A ",
-      "B A "
+      "B A ",
+      "A B A ",
+      "A B "
     ],
     "correct_answer": "A B A ",
     "topic": "Collections"
@@ -343,10 +343,10 @@
   {
     "question": "What will be printed?\nList<Integer> list = new ArrayList<>();\nlist.add(10);\nlist.add(20);\nSystem.out.println(list.get(2));",
     "options": [
-      "20",
-      "10",
+      "null",
       "IndexOutOfBoundsException",
-      "null"
+      "10",
+      "20"
     ],
     "correct_answer": "IndexOutOfBoundsException",
     "topic": "Collections"
@@ -354,10 +354,10 @@
   {
     "question": "What is the issue?\nMap<String, Integer> map = new HashMap<>();\nmap.put(\"a\", 1);\nmap.put(\"a\", 2);\nSystem.out.println(map.size());",
     "options": [
-      "1",
       "2",
       "Compilation error",
-      "null"
+      "null",
+      "1"
     ],
     "correct_answer": "1",
     "topic": "Collections"
@@ -365,9 +365,9 @@
   {
     "question": "What will be the output?\nList<Integer> list = new ArrayList<>();\nlist.add(1);\nlist.add(2);\nlist.remove(0);\nSystem.out.println(list.size());",
     "options": [
-      "1",
-      "2",
       "0",
+      "2",
+      "1",
       "Compilation error"
     ],
     "correct_answer": "1",
@@ -376,8 +376,8 @@
   {
     "question": "What will be printed?\nList<Integer> list = Arrays.asList(1, 2, 3, 4, 5);\nlist.stream().filter(x -> x > 2).forEach(System.out::println);",
     "options": [
-      "3 4 5",
       "1 2 3 4 5",
+      "3 4 5",
       "2 3 4 5",
       "Compilation error"
     ],
@@ -388,8 +388,8 @@
     "question": "What is the output?\nOptional<String> opt = Optional.of(\"Hello\");\nSystem.out.println(opt.get());",
     "options": [
       "Hello",
-      "Optional[Hello]",
       "null",
+      "Optional[Hello]",
       "NoSuchElementException"
     ],
     "correct_answer": "Hello",
@@ -400,8 +400,8 @@
     "options": [
       "null",
       "empty",
-      "NoSuchElementException",
-      "Compilation error"
+      "Compilation error",
+      "NoSuchElementException"
     ],
     "correct_answer": "NoSuchElementException",
     "topic": "Java 8 Basics"
@@ -409,10 +409,10 @@
   {
     "question": "What is printed?\nList<Integer> list = Arrays.asList(1, 2, 3);\nlist.stream().map(x -> x * 2).forEach(System.out::print);",
     "options": [
-      "2 4 6",
-      "1 2 3",
       "246",
-      "Compilation error"
+      "Compilation error",
+      "1 2 3",
+      "2 4 6"
     ],
     "correct_answer": "246",
     "topic": "Java 8 Basics"
@@ -421,9 +421,9 @@
     "question": "What will be the output?\nOptional<String> opt = Optional.ofNullable(null);\nSystem.out.println(opt.isPresent());",
     "options": [
       "true",
-      "false",
       "null",
-      "NullPointerException"
+      "NullPointerException",
+      "false"
     ],
     "correct_answer": "false",
     "topic": "Java 8 Basics"
@@ -432,8 +432,8 @@
     "question": "What is the output?\nList<String> list = Arrays.asList(\"a\", \"b\", \"c\");\nlong count = list.stream().count();\nSystem.out.println(count);",
     "options": [
       "3",
-      "abc",
       "a b c",
+      "abc",
       "Compilation error"
     ],
     "correct_answer": "3",
@@ -442,10 +442,10 @@
   {
     "question": "What will be printed?\ntry {\n    int x = 5 / 0;\n} catch (ArithmeticException e) {\n    System.out.println(\"Error caught\");\n}",
     "options": [
+      "Compilation error",
       "Error caught",
       "Infinity",
-      "0",
-      "Compilation error"
+      "0"
     ],
     "correct_answer": "Error caught",
     "topic": "Exception Handling"
@@ -453,8 +453,8 @@
   {
     "question": "What will be printed?\ntry {\n    System.out.println(\"Try\");\n} finally {\n    System.out.println(\"Finally\");\n}",
     "options": [
-      "Try Finally",
       "Finally",
+      "Try Finally",
       "Try",
       "Compilation error"
     ],
@@ -464,10 +464,10 @@
   {
     "question": "What is the output?\ntry {\n    int x = 5 / 0;\n    System.out.println(\"After division\");\n} catch (Exception e) {\n    System.out.println(\"Caught\");\n}",
     "options": [
-      "Caught",
       "After division",
       "0",
-      "Compilation error"
+      "Compilation error",
+      "Caught"
     ],
     "correct_answer": "Caught",
     "topic": "Exception Handling"
@@ -476,9 +476,9 @@
     "question": "What will be the output?\ntry {\n    System.out.println(\"Try\");\n    return;\n} finally {\n    System.out.println(\"Finally\");\n}",
     "options": [
       "Try Finally",
-      "Try",
+      "Compilation error",
       "Finally",
-      "Compilation error"
+      "Try"
     ],
     "correct_answer": "Try Finally",
     "topic": "Exception Handling"
@@ -486,10 +486,10 @@
   {
     "question": "What is the issue with this code?\nclass MyThread {\n    public void run() {\n        System.out.println(\"Running\");\n    }\n}\nnew MyThread().run();",
     "options": [
-      "No issue, runs fine",
       "Thread not started",
-      "Must extend Thread",
-      "Compilation error"
+      "Compilation error",
+      "No issue, runs fine",
+      "Must extend Thread"
     ],
     "correct_answer": "Thread not started",
     "topic": "Multithreading"
@@ -497,10 +497,10 @@
   {
     "question": "What will happen?\nclass MyThread extends Thread {\n    public void run() {\n        System.out.println(\"Running\");\n    }\n}\nnew MyThread().start();",
     "options": [
-      "Prints 'Running'",
-      "Compilation error",
+      "Does nothing",
       "Runtime exception",
-      "Does nothing"
+      "Compilation error",
+      "Prints 'Running'"
     ],
     "correct_answer": "Prints 'Running'",
     "topic": "Multithreading"
@@ -508,10 +508,10 @@
   {
     "question": "What is the difference between start() and run()?",
     "options": [
-      "start() creates a new thread, run() executes in current thread",
+      "Compilation error",
       "They are the same",
-      "run() creates a new thread, start() executes in current thread",
-      "Compilation error"
+      "start() creates a new thread, run() executes in current thread",
+      "run() creates a new thread, start() executes in current thread"
     ],
     "correct_answer": "start() creates a new thread, run() executes in current thread",
     "topic": "Multithreading"
@@ -520,8 +520,8 @@
     "question": "What will be the output?\nclass Counter {\n    static int count = 0;\n}\nCounter.count++;\nCounter.count++;\nSystem.out.println(Counter.count);",
     "options": [
       "0",
-      "1",
       "2",
+      "1",
       "Compilation error"
     ],
     "correct_answer": "2",
@@ -530,10 +530,10 @@
   {
     "question": "What is volatile used for?",
     "options": [
-      "To make variables thread-safe by preventing caching",
-      "To initialize variables",
       "To make variables final",
-      "Compilation error"
+      "Compilation error",
+      "To initialize variables",
+      "To make variables thread-safe by preventing caching"
     ],
     "correct_answer": "To make variables thread-safe by preventing caching",
     "topic": "Multithreading"
@@ -542,9 +542,9 @@
     "question": "What will be printed?\nclass Test implements Runnable {\n    public void run() {\n        System.out.println(\"Runnable\");\n    }\n}\nnew Thread(new Test()).start();",
     "options": [
       "Prints 'Runnable'",
-      "Compilation error",
       "Runtime exception",
-      "Does nothing"
+      "Does nothing",
+      "Compilation error"
     ],
     "correct_answer": "Prints 'Runnable'",
     "topic": "Multithreading"
