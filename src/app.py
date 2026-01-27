@@ -23,6 +23,17 @@ import socket
 import streamlit as st
 import pandas as pd
 
+
+# ================================================================
+# L4 JAVA-ONLY ROLES (DO NOT TOUCH OTHER ROLES)
+# ================================================================
+JAVA_L4_ROLES = {
+    "java_entry",
+    "java_aws",
+    "java_qa",
+}
+
+
 # ================================================================
 # ROUND DISPLAY LABELS (UI ONLY)
 # ================================================================
@@ -370,7 +381,6 @@ if st.button("🚀 Generate Tests for New Candidates"):
 
     for i, cand in enumerate(pending, start=1):
 
-
         domain_selected = cand["domain"] != "None"
 
         uid, json_path = run_candidate_test_generation_by_role(
@@ -389,18 +399,14 @@ if st.button("🚀 Generate Tests for New Candidates"):
         forms["L1"] = raw_forms.get("L1")
         forms["L2"] = raw_forms.get("L2")
         forms["L3"] = raw_forms.get("L3")
+        forms["L5"] = raw_forms.get("L5")
 
-        # L4 is added later (coding)
-        # L5/L6 logic:
         if domain_selected:
-            # Domain → L5, Soft Skills → L6
-            forms["L5"] = raw_forms.get("L5")   # domain
-            forms["L6"] = raw_forms.get("L6")   # soft skills
-        else:
-            # No domain → Soft Skills stays at L5
-            forms["L5"] = raw_forms.get("L5")
+            forms["L6"] = raw_forms.get("L6")
 
-        # ---- START L4 CODING SERVER ----
+        # =====================================================
+        # START L4 CODING SERVER (ROLE-AWARE, MINIMAL CHANGE)
+        # =====================================================
         port = 5001
         while True:
             try:
@@ -411,25 +417,41 @@ if st.button("🚀 Generate Tests for New Candidates"):
             except OSError:
                 port += 1
 
-        proc = subprocess.Popen(
-            [sys.executable, PROJECT_ROOT / "coding_round_l4" / "exam_server.py", str(port)],
-            cwd=str(PROJECT_ROOT / "coding_round_l4"),
-            env={
-                **os.environ,
-                "CANDIDATE_UID": uid,  # 🔥 KEY FIX
-            }
-        )
-
-        st.session_state.setdefault("l4_processes", {})
-        st.session_state.l4_processes[uid] = proc
+        if cand["role"] in JAVA_L4_ROLES:
+            # -------- JAVA L4 ENGINE --------
+            proc = subprocess.Popen(
+                [
+                    sys.executable,
+                    PROJECT_ROOT / "coding_round_l4" / "coding_round_java" / "exam_server.py",
+                    str(port),
+                ],
+                cwd=str(PROJECT_ROOT / "coding_round_l4" / "coding_round_java"),
+                env={
+                    **os.environ,
+                    "CANDIDATE_UID": uid,
+                }
+            )
+        else:
+            # -------- EXISTING PYTHON / JS L4 ENGINE --------
+            proc = subprocess.Popen(
+                [
+                    sys.executable,
+                    PROJECT_ROOT / "coding_round_l4" / "exam_server.py",
+                    str(port),
+                ],
+                cwd=str(PROJECT_ROOT / "coding_round_l4"),
+                env={
+                    **os.environ,
+                    "CANDIDATE_UID": uid,
+                }
+            )
 
         time.sleep(1)
         forms["L4"] = f"http://{get_vm_ip()}:{port}"
 
+        # ---- Persist candidate data ----
         cand["forms"] = forms
         cand["json_path"] = json_path
-
-        # 🔥 ADD THIS (Step 3)
         cand["l4_result_path"] = str(
             PROJECT_ROOT / "coding_round_l4" / f"l4_result_{uid}.json"
         )
@@ -437,7 +459,10 @@ if st.button("🚀 Generate Tests for New Candidates"):
         cand["tests_generated"] = True
         commit_state()
 
+        progress.progress(i / total)
+
     st.success("All candidate tests generated successfully")
+
 
 
 # st.markdown("---")
