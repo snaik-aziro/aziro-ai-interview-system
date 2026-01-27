@@ -1,899 +1,899 @@
 [
   {
-    "question": "Identify the issue in the following Python code:\n\ndef calculate_area(radius):\n    area = 3.14 * radius * radius\n    print(area)\n\nresult = calculate_area(5)\nprint(result)",
+    "question": "Identify the issue in the following Python code:\\\\n\\\\ndef calculate_area(radius):\\\\n    area = 3.14 * radius * radius\\\\n    print(area)\\\\n\\\\nresult = calculate_area(5)\\\\nprint(result)",
     "options": [
-      "The function doesn't return a value, only prints it",
-      "radius cannot be a float",
+      "The variable 'result' cannot store None",
       "3.14 is not a valid approximation of pi",
-      "The variable 'result' cannot store None"
+      "The function doesn't return a value, only prints it",
+      "radius cannot be a float"
     ],
     "correct_answer": "The function doesn't return a value, only prints it",
     "topic": "Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What will be the output of this code?\n\nx = 5\ny = 10\nif x > y:\n    print('A')\nelif x == y:\n    print('B')\nelse:\n    print('C')",
+    "question": "What will be the output of this code?\\\\n\\\\nx = 5\\\\ny = 10\\\\nif x > y:\\\\n    print('A')\\\\nelif x == y:\\\\n    print('B')\\\\nelse:\\\\n    print('C')",
     "options": [
-      "A",
-      "B",
+      "Error",
       "C",
-      "Error"
+      "B",
+      "A"
     ],
     "correct_answer": "C",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug in the following code:\n\nnumbers = [1, 2, 3, 4, 5]\nfor i in range(len(numbers)):\n    numbers[i] = numbers[i] * 2\n    print(numbers)",
+    "question": "Identify the bug in the following code:\\\\n\\\\nnumbers = [1, 2, 3, 4, 5]\\\\nfor i in range(len(numbers)):\\\\n    numbers[i] = numbers[i] * 2\\\\n    print(numbers)",
     "options": [
       "numbers[i] * 2 will cause a type error",
-      "range(len(numbers)) skips the last element",
       "print() is called inside the loop unnecessarily",
-      "The code has no bug"
+      "The code has no bug",
+      "range(len(numbers)) skips the last element"
     ],
     "correct_answer": "print() is called inside the loop unnecessarily",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output of this code?\n\nmy_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)",
+    "question": "What is the output of this code?\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list.append(4)\\\\nprint(my_list)",
     "options": [
-      "[1, 2, 3]",
-      "[1, 2, 3, 4]",
       "[4]",
-      "Error"
+      "Error",
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]"
     ],
     "correct_answer": "[1, 2, 3, 4]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue in this code:\n\nname = 'John'\nage = 25\nprint(name + age)",
+    "question": "Identify the issue in this code:\\\\n\\\\nname = 'John'\\\\nage = 25\\\\nprint(name + age)",
     "options": [
-      "age must be a string to concatenate",
-      "name and age cannot be used together",
+      "print() doesn't accept multiple types",
       "The + operator cannot concatenate string and integer",
-      "print() doesn't accept multiple types"
+      "name and age cannot be used together",
+      "age must be a string to concatenate"
     ],
     "correct_answer": "The + operator cannot concatenate string and integer",
     "topic": "Operators",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nfor i in range(3):\n    print(i)",
+    "question": "What will be printed?\\\\n\\\\nfor i in range(3):\\\\n    print(i)",
     "options": [
-      "1 2 3",
-      "0 1 2",
       "1, 2, 3",
-      "0, 1, 2, 3"
+      "0, 1, 2, 3",
+      "0 1 2",
+      "1 2 3"
     ],
     "correct_answer": "0 1 2",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the bug in this code?\n\nmy_dict = {'name': 'Alice', 'age': 30}\nprint(my_dict['address'])",
+    "question": "What is the bug in this code?\\\\n\\\\nmy_dict = {'name': 'Alice', 'age': 30}\\\\nprint(my_dict['address'])",
     "options": [
-      "Dictionaries don't support string keys",
-      "The key 'address' doesn't exist in the dictionary",
+      "Syntax error in dictionary creation",
       "print() cannot access dictionary values",
-      "Syntax error in dictionary creation"
+      "The key 'address' doesn't exist in the dictionary",
+      "Dictionaries don't support string keys"
     ],
     "correct_answer": "The key 'address' doesn't exist in the dictionary",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nmy_tuple = (1, 2, 3)\nmy_tuple[0] = 10\nprint(my_tuple)",
+    "question": "Identify the problem:\\\\n\\\\nmy_tuple = (1, 2, 3)\\\\nmy_tuple[0] = 10\\\\nprint(my_tuple)",
     "options": [
-      "Tuples cannot be printed",
-      "Tuples don't support indexing",
+      "The value 10 is too large for a tuple",
       "Tuples are immutable and cannot be modified",
-      "The value 10 is too large for a tuple"
+      "Tuples don't support indexing",
+      "Tuples cannot be printed"
     ],
     "correct_answer": "Tuples are immutable and cannot be modified",
     "topic": "Tuples",
     "difficulty": "easy"
   },
   {
-    "question": "What will be the output?\n\nx = '5'\ny = 3\nprint(x * y)",
+    "question": "What will be the output?\\\\n\\\\nx = '5'\\\\ny = 3\\\\nprint(x * y)",
     "options": [
-      "Error",
-      "8",
       "'555'",
-      "15"
+      "15",
+      "8",
+      "Error"
     ],
     "correct_answer": "'555'",
     "topic": "Operators",
     "difficulty": "easy"
   },
   {
-    "question": "What is wrong with this code?\n\ndef greet():\n    greeting = 'Hello'\n\ngreet()\nprint(greeting)",
+    "question": "What is wrong with this code?\\\\n\\\\ndef greet():\\\\n    greeting = 'Hello'\\\\n\\\\ngreet()\\\\nprint(greeting)",
     "options": [
-      "greeting is not returned from the function",
-      "'Hello' is not a valid string",
+      "greet() cannot be called without arguments",
       "The function must have parameters",
-      "greet() cannot be called without arguments"
+      "greeting is not returned from the function",
+      "'Hello' is not a valid string"
     ],
     "correct_answer": "greeting is not returned from the function",
     "topic": "Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = [1, 2, 3, 4, 5]\nprint(my_list[1:4])",
+    "question": "What is the output?\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nprint(my_list[1:4])",
     "options": [
-      "[2, 3, 4]",
-      "[1, 2, 3]",
+      "[1, 2, 3, 4]",
       "[2, 3, 4, 5]",
-      "[1, 2, 3, 4]"
+      "[1, 2, 3]",
+      "[2, 3, 4]"
     ],
     "correct_answer": "[2, 3, 4]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\ncount = 0\nwhile count < 5\n    print(count)\n    count += 1",
+    "question": "Identify the bug:\\\\n\\\\ncount = 0\\\\nwhile count < 5\\\\n    print(count)\\\\n    count += 1",
     "options": [
-      "count < 5 is incorrect logic",
-      "print() will print too many times",
+      "count += 1 should be count = count + 1",
       "Missing colon after while condition",
-      "count += 1 should be count = count + 1"
+      "print() will print too many times",
+      "count < 5 is incorrect logic"
     ],
     "correct_answer": "Missing colon after while condition",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_str = 'Python'\nprint(my_str[0])",
+    "question": "What is the output?\\\\n\\\\nmy_str = 'Python'\\\\nprint(my_str[0])",
     "options": [
-      "'Python'",
-      "'P'",
+      "Error",
       "P",
-      "Error"
+      "'P'",
+      "'Python'"
     ],
     "correct_answer": "'P'",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "What will this code output?\n\nx = 10\ny = 20\nz = x + y\nprint(z)",
+    "question": "What will this code output?\\\\n\\\\nx = 10\\\\ny = 20\\\\nz = x + y\\\\nprint(z)",
     "options": [
-      "10",
-      "20",
+      "'1020'",
       "30",
-      "'1020'"
+      "20",
+      "10"
     ],
     "correct_answer": "30",
     "topic": "Arithmetic Operators",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\nif 5 > 3\n    print('True')",
+    "question": "Identify the issue:\\\\n\\\\nif 5 > 3\\\\n    print('True')",
     "options": [
-      "5 > 3 evaluates to False",
+      "Comparison operators cannot be used this way",
       "Missing colon after condition",
       "print() doesn't work in if statements",
-      "Comparison operators cannot be used this way"
+      "5 > 3 evaluates to False"
     ],
     "correct_answer": "Missing colon after condition",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_dict = {}\nmy_dict['key'] = 'value'\nprint(my_dict)",
+    "question": "What is the output?\\\\n\\\\nmy_dict = {}\\\\nmy_dict['key'] = 'value'\\\\nprint(my_dict)",
     "options": [
-      "Error",
-      "{'key': 'value'}",
+      "'key'",
       "{}",
-      "'key'"
+      "{'key': 'value'}",
+      "Error"
     ],
     "correct_answer": "{'key': 'value'}",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What is the bug in this code?\n\nfor i in [1, 2, 3]:\n    i = i * 2\nprint(i)",
+    "question": "What is the bug in this code?\\\\n\\\\nfor i in [1, 2, 3]:\\\\n    i = i * 2\\\\nprint(i)",
     "options": [
-      "i cannot be reassigned in a loop",
-      "The list will be modified",
+      "Syntax error in loop",
       "This will print 6, but that's the intended behavior",
-      "Syntax error in loop"
+      "The list will be modified",
+      "i cannot be reassigned in a loop"
     ],
     "correct_answer": "This will print 6, but that's the intended behavior",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nx = 7\ny = 2\nprint(x % y)",
+    "question": "What is the output?\\\\n\\\\nx = 7\\\\ny = 2\\\\nprint(x % y)",
     "options": [
-      "1",
-      "3",
+      "Error",
       "3.5",
-      "Error"
+      "3",
+      "1"
     ],
     "correct_answer": "1",
     "topic": "Arithmetic Operators",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nmy_string = 'Hello'\nmy_string[0] = 'J'\nprint(my_string)",
+    "question": "Identify the problem:\\\\n\\\\nmy_string = 'Hello'\\\\nmy_string[0] = 'J'\\\\nprint(my_string)",
     "options": [
-      "Strings cannot be modified by assignment",
-      "'J' is not a valid character",
+      "my_string must be declared differently",
       "String indexing doesn't work this way",
-      "my_string must be declared differently"
+      "Strings cannot be modified by assignment",
+      "'J' is not a valid character"
     ],
     "correct_answer": "Strings cannot be modified by assignment",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nif True:\n    x = 5\nprint(x)",
+    "question": "What will be printed?\\\\n\\\\nif True:\\\\n    x = 5\\\\nprint(x)",
     "options": [
-      "5",
-      "Error: x is not defined",
+      "None",
       "True",
-      "None"
+      "Error: x is not defined",
+      "5"
     ],
     "correct_answer": "5",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output of this code?\n\nmy_list = [1, 2, 3]\nmy_list.pop()\nprint(my_list)",
+    "question": "What is the output of this code?\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list.pop()\\\\nprint(my_list)",
     "options": [
-      "[1, 2, 3]",
-      "[1, 2]",
+      "Error",
       "[3]",
-      "Error"
+      "[1, 2]",
+      "[1, 2, 3]"
     ],
     "correct_answer": "[1, 2]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\ndef add(a, b):\n    result = a + b\n    return result\n\nprint(add(5))",
+    "question": "Identify the bug:\\\\n\\\\ndef add(a, b):\\\\n    result = a + b\\\\n    return result\\\\n\\\\nprint(add(5))",
     "options": [
-      "add() requires two arguments but only one provided",
-      "result must be returned as a string",
+      "add() cannot return integers",
       "The return statement is incorrect",
-      "add() cannot return integers"
+      "result must be returned as a string",
+      "add() requires two arguments but only one provided"
     ],
     "correct_answer": "add() requires two arguments but only one provided",
     "topic": "Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_tuple = (1, 2, 3)\nprint(my_tuple[0:2])",
+    "question": "What is the output?\\\\n\\\\nmy_tuple = (1, 2, 3)\\\\nprint(my_tuple[0:2])",
     "options": [
-      "(1, 2)",
-      "[1, 2]",
+      "Error",
       "(1, 2, 3)",
-      "Error"
+      "[1, 2]",
+      "(1, 2)"
     ],
     "correct_answer": "(1, 2)",
     "topic": "Tuples",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nx = 'Hello'\nprint(len(x))",
+    "question": "What will this print?\\\\n\\\\nx = 'Hello'\\\\nprint(len(x))",
     "options": [
-      "Hello",
-      "5",
+      "Error",
       "'Hello'",
-      "Error"
+      "Hello",
+      "5"
     ],
     "correct_answer": "5",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\nmy_list = [1, 2, 3, 4, 5]\nprint(my_list[10])",
+    "question": "Identify the issue:\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nprint(my_list[10])",
     "options": [
-      "Lists cannot have 5 elements",
-      "Index 10 is out of range",
+      "print() doesn't accept list indexing",
       "my_list must be declared as a tuple",
-      "print() doesn't accept list indexing"
+      "Lists cannot have 5 elements",
+      "Index 10 is out of range"
     ],
     "correct_answer": "Index 10 is out of range",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nif 'a' in 'apple':\n    print('Yes')\nelse:\n    print('No')",
+    "question": "What is the output?\\\\n\\\\nif 'a' in 'apple':\\\\n    print('Yes')\\\\nelse:\\\\n    print('No')",
     "options": [
-      "Yes",
-      "No",
+      "Error",
       "apple",
-      "Error"
+      "No",
+      "Yes"
     ],
     "correct_answer": "Yes",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nx = 10\nif x > 5:\n    if x > 15:\n        print('A')\n    else:\n        print('B')\nelse:\n    print('C')",
+    "question": "What will be printed?\\\\n\\\\nx = 10\\\\nif x > 5:\\\\n    if x > 15:\\\\n        print('A')\\\\n    else:\\\\n        print('B')\\\\nelse:\\\\n    print('C')",
     "options": [
-      "A",
-      "B",
+      "Error",
       "C",
-      "Error"
+      "B",
+      "A"
     ],
     "correct_answer": "B",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nmy_dict = {'a': 1, 'b': 2}\nmy_dict['a'] = 3\nprint(my_dict)",
+    "question": "Identify the bug:\\\\n\\\\nmy_dict = {'a': 1, 'b': 2}\\\\nmy_dict['a'] = 3\\\\nprint(my_dict)",
     "options": [
-      "Dictionary values cannot be changed",
-      "Duplicate key 'a' causes error",
+      "Dictionaries don't support string keys",
       "No bug - prints {'a': 3, 'b': 2}",
-      "Dictionaries don't support string keys"
+      "Duplicate key 'a' causes error",
+      "Dictionary values cannot be changed"
     ],
     "correct_answer": "No bug - prints {'a': 3, 'b': 2}",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nx = 5\nx += 3\nprint(x)",
+    "question": "What is the output?\\\\n\\\\nx = 5\\\\nx += 3\\\\nprint(x)",
     "options": [
-      "5",
-      "3",
+      "Error",
       "8",
-      "Error"
+      "3",
+      "5"
     ],
     "correct_answer": "8",
     "topic": "Operators",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nmy_list = [1, 2, 3]\nmy_list.insert(1, 10)\nprint(my_list)",
+    "question": "What will this print?\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list.insert(1, 10)\\\\nprint(my_list)",
     "options": [
-      "[1, 2, 3, 10]",
-      "[1, 10, 2, 3]",
+      "Error",
       "[10, 1, 2, 3]",
-      "Error"
+      "[1, 10, 2, 3]",
+      "[1, 2, 3, 10]"
     ],
     "correct_answer": "[1, 10, 2, 3]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nmy_var = 10\nprint(my_vars)",
+    "question": "Identify the problem:\\\\n\\\\nmy_var = 10\\\\nprint(my_vars)",
     "options": [
-      "my_vars is not defined",
-      "Variables with 's' at the end cannot be printed",
+      "10 cannot be assigned to variables",
       "print() requires two arguments",
-      "10 cannot be assigned to variables"
+      "my_vars is not defined",
+      "Variables with 's' at the end cannot be printed"
     ],
     "correct_answer": "my_vars is not defined",
     "topic": "Variables",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nprint(3 ** 2)",
+    "question": "What is the output?\\\\n\\\\nprint(3 ** 2)",
     "options": [
-      "6",
-      "9",
+      "Error",
       "1",
-      "Error"
+      "9",
+      "6"
     ],
     "correct_answer": "9",
     "topic": "Arithmetic Operators",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nmy_str = 'Python'\nprint(my_str.lower())",
+    "question": "What will be printed?\\\\n\\\\nmy_str = 'Python'\\\\nprint(my_str.lower())",
     "options": [
-      "PYTHON",
-      "python",
+      "Error",
       "Python",
-      "Error"
+      "python",
+      "PYTHON"
     ],
     "correct_answer": "python",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nfor i in range(5):\nprint(i)",
+    "question": "Identify the bug:\\\\n\\\\nfor i in range(5):\\\\nprint(i)",
     "options": [
-      "range(5) includes the value 5",
-      "print() is not properly indented",
+      "range() is not a valid function",
       "The loop will run infinitely",
-      "range() is not a valid function"
+      "print() is not properly indented",
+      "range(5) includes the value 5"
     ],
     "correct_answer": "print() is not properly indented",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = [1, 2, 3, 4, 5]\nprint(my_list[-1])",
+    "question": "What is the output?\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nprint(my_list[-1])",
     "options": [
-      "1",
-      "5",
+      "Error",
       "-1",
-      "Error"
+      "5",
+      "1"
     ],
     "correct_answer": "5",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What will this code print?\n\nx = True\ny = False\nif x and y:\n    print('A')\nelif x or y:\n    print('B')\nelse:\n    print('C')",
+    "question": "What will this code print?\\\\n\\\\nx = True\\\\ny = False\\\\nif x and y:\\\\n    print('A')\\\\nelif x or y:\\\\n    print('B')\\\\nelse:\\\\n    print('C')",
     "options": [
-      "A",
-      "B",
+      "Error",
       "C",
-      "Error"
+      "B",
+      "A"
     ],
     "correct_answer": "B",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\nmy_list = [1, 2, 3]\nmy_list = my_list + 4\nprint(my_list)",
+    "question": "Identify the issue:\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list = my_list + 4\\\\nprint(my_list)",
     "options": [
-      "Cannot concatenate list and integer",
-      "4 must be in a list to concatenate",
+      "Both A and B are correct",
       "The + operator is not defined for lists",
-      "Both A and B are correct"
+      "4 must be in a list to concatenate",
+      "Cannot concatenate list and integer"
     ],
     "correct_answer": "Cannot concatenate list and integer",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_dict = {'x': 10, 'y': 20}\nprint(my_dict.get('z'))",
+    "question": "What is the output?\\\\n\\\\nmy_dict = {'x': 10, 'y': 20}\\\\nprint(my_dict.get('z'))",
     "options": [
-      "Error",
-      "None",
+      "False",
       "0",
-      "False"
+      "None",
+      "Error"
     ],
     "correct_answer": "None",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nmy_str = 'Hello World'\nprint(my_str.split())",
+    "question": "What will be printed?\\\\n\\\\nmy_str = 'Hello World'\\\\nprint(my_str.split())",
     "options": [
-      "['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']",
-      "['Hello', 'World']",
+      "Error",
       "'Hello World'",
-      "Error"
+      "['Hello', 'World']",
+      "['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']"
     ],
     "correct_answer": "['Hello', 'World']",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\ndef get_value():\n    value = 100\n\nprint(get_value())",
+    "question": "Identify the bug:\\\\n\\\\ndef get_value():\\\\n    value = 100\\\\n\\\\nprint(get_value())",
     "options": [
-      "The function doesn't return anything, prints None",
-      "value cannot be assigned in functions",
+      "print() cannot call functions",
       "get_value() must have parameters",
-      "print() cannot call functions"
+      "value cannot be assigned in functions",
+      "The function doesn't return anything, prints None"
     ],
     "correct_answer": "The function doesn't return anything, prints None",
     "topic": "Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = [1, 2, 3, 4]\nprint(sum(my_list))",
+    "question": "What is the output?\\\\n\\\\nmy_list = [1, 2, 3, 4]\\\\nprint(sum(my_list))",
     "options": [
-      "[1, 2, 3, 4]",
-      "10",
+      "Error",
       "4",
-      "Error"
+      "10",
+      "[1, 2, 3, 4]"
     ],
     "correct_answer": "10",
     "topic": "Built-in Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nx = 5\nif x > 3 and x < 10:\n    print('True')\nelse:\n    print('False')",
+    "question": "What will this print?\\\\n\\\\nx = 5\\\\nif x > 3 and x < 10:\\\\n    print('True')\\\\nelse:\\\\n    print('False')",
     "options": [
-      "True",
-      "False",
+      "3",
       "Error",
-      "3"
+      "False",
+      "True"
     ],
     "correct_answer": "True",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nmy_list = [1, 2, 3]\nfor i in my_list:\n    my_list.append(i)\nprint(my_list)",
+    "question": "Identify the problem:\\\\n\\\\nmy_list = [1, 2, 3]\\\\nfor i in my_list:\\\\n    my_list.append(i)\\\\nprint(my_list)",
     "options": [
-      "Infinite loop - list grows indefinitely",
-      "Cannot append to list while iterating",
+      "Both A and B are correct",
       "my_list becomes [1, 2, 3, 1, 2, 3, 1, 2, 3...]",
-      "Both A and B are correct"
+      "Cannot append to list while iterating",
+      "Infinite loop - list grows indefinitely"
     ],
     "correct_answer": "Infinite loop - list grows indefinitely",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_str = 'abc'\nprint(my_str.upper())",
+    "question": "What is the output?\\\\n\\\\nmy_str = 'abc'\\\\nprint(my_str.upper())",
     "options": [
-      "'abc'",
-      "'ABC'",
+      "Error",
       "ABC",
-      "Error"
+      "'ABC'",
+      "'abc'"
     ],
     "correct_answer": "'ABC'",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nx = 10\ny = 3\nprint(x // y)",
+    "question": "What will be printed?\\\\n\\\\nx = 10\\\\ny = 3\\\\nprint(x // y)",
     "options": [
-      "3",
-      "3.33",
+      "Error",
       "1",
-      "Error"
+      "3.33",
+      "3"
     ],
     "correct_answer": "3",
     "topic": "Arithmetic Operators",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nmy_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list)):\n    if my_list[i] == 3:\n        my_list.pop(i)\nprint(my_list)",
+    "question": "Identify the bug:\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nfor i in range(len(my_list)):\\\\n    if my_list[i] == 3:\\\\n        my_list.pop(i)\\\\nprint(my_list)",
     "options": [
-      "Cannot pop from list while iterating",
-      "If statement is unnecessary",
+      "Both A and B are correct",
       "my_list will be [1, 2, 4, 5]",
-      "Both A and B are correct"
+      "If statement is unnecessary",
+      "Cannot pop from list while iterating"
     ],
     "correct_answer": "Cannot pop from list while iterating",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = [1, 2, 3]\nmy_list.clear()\nprint(my_list)",
+    "question": "What is the output?\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list.clear()\\\\nprint(my_list)",
     "options": [
-      "[1, 2, 3]",
-      "[]",
+      "Error",
       "None",
-      "Error"
+      "[]",
+      "[1, 2, 3]"
     ],
     "correct_answer": "[]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nx = 'hello'\nprint(x == 'Hello')",
+    "question": "What will this print?\\\\n\\\\nx = 'hello'\\\\nprint(x == 'Hello')",
     "options": [
-      "True",
-      "False",
+      "'hello'",
       "Error",
-      "'hello'"
+      "False",
+      "True"
     ],
     "correct_answer": "False",
     "topic": "Operators",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\ndef multiply(x, y):\n    return x * y\n\nresult = multiply(5, 3)\nprint(result)",
+    "question": "Identify the issue:\\\\n\\\\ndef multiply(x, y):\\\\n    return x * y\\\\n\\\\nresult = multiply(5, 3)\\\\nprint(result)",
     "options": [
-      "multiply() requires string arguments",
-      "No issue - prints 15",
+      "return statement is incorrect",
       "x * y will return a string",
-      "return statement is incorrect"
+      "No issue - prints 15",
+      "multiply() requires string arguments"
     ],
     "correct_answer": "No issue - prints 15",
     "topic": "Functions",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_tuple = (10, 20, 30)\nprint(my_tuple.index(20))",
+    "question": "What is the output?\\\\n\\\\nmy_tuple = (10, 20, 30)\\\\nprint(my_tuple.index(20))",
     "options": [
-      "20",
-      "1",
+      "Error",
       "2",
-      "Error"
+      "1",
+      "20"
     ],
     "correct_answer": "1",
     "topic": "Tuples",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nmy_list = [1, 2, 3, 4, 5]\nmy_list.reverse()\nprint(my_list)",
+    "question": "What will be printed?\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nmy_list.reverse()\\\\nprint(my_list)",
     "options": [
-      "[1, 2, 3, 4, 5]",
-      "[5, 4, 3, 2, 1]",
+      "None",
       "Error",
-      "None"
+      "[5, 4, 3, 2, 1]",
+      "[1, 2, 3, 4, 5]"
     ],
     "correct_answer": "[5, 4, 3, 2, 1]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nmy_dict = {1: 'a', 2: 'b'}\nprint(my_dict['1'])",
+    "question": "Identify the bug:\\\\n\\\\nmy_dict = {1: 'a', 2: 'b'}\\\\nprint(my_dict['1'])",
     "options": [
-      "Integer key 1 is different from string key '1'",
-      "Dictionary keys cannot be integers",
+      "String keys cannot access integer keys",
       "print() doesn't work with dictionaries",
-      "String keys cannot access integer keys"
+      "Dictionary keys cannot be integers",
+      "Integer key 1 is different from string key '1'"
     ],
     "correct_answer": "Integer key 1 is different from string key '1'",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nx = 5\nprint(type(x))",
+    "question": "What is the output?\\\\n\\\\nx = 5\\\\nprint(type(x))",
     "options": [
-      "5",
-      "<class 'int'>",
+      "Error",
       "'int'",
-      "Error"
+      "<class 'int'>",
+      "5"
     ],
     "correct_answer": "<class 'int'>",
     "topic": "Data Types",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nmy_list = [1, 2, 3]\nmy_list2 = my_list\nmy_list.append(4)\nprint(my_list2)",
+    "question": "What will this print?\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list2 = my_list\\\\nmy_list.append(4)\\\\nprint(my_list2)",
     "options": [
-      "[1, 2, 3]",
-      "[1, 2, 3, 4]",
+      "[4]",
       "Error",
-      "[4]"
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]"
     ],
     "correct_answer": "[1, 2, 3, 4]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nmy_dict = {'a': 1, 'b': 2}\nfor key in my_dict:\n    del my_dict[key]\nprint(my_dict)",
+    "question": "Identify the problem:\\\\n\\\\nmy_dict = {'a': 1, 'b': 2}\\\\nfor key in my_dict:\\\\n    del my_dict[key]\\\\nprint(my_dict)",
     "options": [
-      "Cannot delete from dictionary while iterating",
-      "del statement is incorrect",
+      "Both A and B",
       "my_dict becomes empty",
-      "Both A and B"
+      "del statement is incorrect",
+      "Cannot delete from dictionary while iterating"
     ],
     "correct_answer": "Cannot delete from dictionary while iterating",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nprint(10 / 3)",
+    "question": "What is the output?\\\\n\\\\nprint(10 / 3)",
     "options": [
-      "3",
-      "3.0",
+      "Error",
       "3.333...",
-      "Error"
+      "3.0",
+      "3"
     ],
     "correct_answer": "3.333...",
     "topic": "Arithmetic Operators",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nmy_str = '123'\nprint(int(my_str))",
+    "question": "What will be printed?\\\\n\\\\nmy_str = '123'\\\\nprint(int(my_str))",
     "options": [
-      "'123'",
-      "123",
+      "[1, 2, 3]",
       "Error",
-      "[1, 2, 3]"
+      "123",
+      "'123'"
     ],
     "correct_answer": "123",
     "topic": "Data Types",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nfor i in range(5):\n    x = i\nprint(x)",
+    "question": "Identify the bug:\\\\n\\\\nfor i in range(5):\\\\n    x = i\\\\nprint(x)",
     "options": [
-      "x is not defined after the loop",
-      "x will be 4 after loop execution",
+      "range(5) is invalid",
       "The loop doesn't execute",
-      "range(5) is invalid"
+      "x is not defined after the loop",
+      "x will be 4 after loop execution"
     ],
     "correct_answer": "x will be 4 after loop execution",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = ['a', 'b', 'c']\nprint(' '.join(my_list))",
+    "question": "What is the output?\\\\n\\\\nmy_list = ['a', 'b', 'c']\\\\nprint(' '.join(my_list))",
     "options": [
-      "['a', 'b', 'c']",
-      "'a b c'",
+      "Error",
       "a b c",
-      "Error"
+      "'a b c'",
+      "['a', 'b', 'c']"
     ],
     "correct_answer": "a b c",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nx = None\nif x:\n    print('True')\nelse:\n    print('False')",
+    "question": "What will this print?\\\\n\\\\nx = None\\\\nif x:\\\\n    print('True')\\\\nelse:\\\\n    print('False')",
     "options": [
-      "True",
-      "False",
+      "Error",
       "None",
-      "Error"
+      "False",
+      "True"
     ],
     "correct_answer": "False",
     "topic": "Conditional Statements",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\nmy_list = [1, 2, 3]\nmy_list.extend(4)\nprint(my_list)",
+    "question": "Identify the issue:\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list.extend(4)\\\\nprint(my_list)",
     "options": [
-      "extend() expects an iterable",
-      "4 must be a list",
+      "No issue - prints [1, 2, 3, 4]",
       "Both A and B",
-      "No issue - prints [1, 2, 3, 4]"
+      "4 must be a list",
+      "extend() expects an iterable"
     ],
     "correct_answer": "extend() expects an iterable",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_dict = {}\nif my_dict:\n    print('Not empty')\nelse:\n    print('Empty')",
+    "question": "What is the output?\\\\n\\\\nmy_dict = {}\\\\nif my_dict:\\\\n    print('Not empty')\\\\nelse:\\\\n    print('Empty')",
     "options": [
-      "Not empty",
-      "Empty",
+      "{}",
       "Error",
-      "{}"
+      "Empty",
+      "Not empty"
     ],
     "correct_answer": "Empty",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nx = [1, 2, 3]\ny = x\ny = [4, 5, 6]\nprint(x)",
+    "question": "What will be printed?\\\\n\\\\nx = [1, 2, 3]\\\\ny = x\\\\ny = [4, 5, 6]\\\\nprint(x)",
     "options": [
-      "[1, 2, 3]",
-      "[4, 5, 6]",
+      "[1, 2, 3, 4, 5, 6]",
       "Error",
-      "[1, 2, 3, 4, 5, 6]"
+      "[4, 5, 6]",
+      "[1, 2, 3]"
     ],
     "correct_answer": "[1, 2, 3]",
     "topic": "Variables",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nmy_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list) - 1):\n    print(my_list[i])",
+    "question": "Identify the bug:\\\\n\\\\nmy_list = [1, 2, 3, 4, 5]\\\\nfor i in range(len(my_list) - 1):\\\\n    print(my_list[i])",
     "options": [
-      "The last element is never printed",
-      "The loop runs 4 times instead of 5",
+      "No bug - intended behavior",
       "Both A and B",
-      "No bug - intended behavior"
+      "The loop runs 4 times instead of 5",
+      "The last element is never printed"
     ],
     "correct_answer": "Both A and B",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nprint(isinstance(5, int))",
+    "question": "What is the output?\\\\n\\\\nprint(isinstance(5, int))",
     "options": [
-      "True",
-      "False",
+      "Error",
       "5",
-      "Error"
+      "False",
+      "True"
     ],
     "correct_answer": "True",
     "topic": "Data Types",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nmy_str = 'Python'\nmy_str = my_str[0] + my_str[-1]\nprint(my_str)",
+    "question": "What will this print?\\\\n\\\\nmy_str = 'Python'\\\\nmy_str = my_str[0] + my_str[-1]\\\\nprint(my_str)",
     "options": [
-      "'Pythons'",
-      "'Pn'",
+      "Error",
       "'Po'",
-      "Error"
+      "'Pn'",
+      "'Pythons'"
     ],
     "correct_answer": "'Pn'",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the problem:\n\nx = 10\ny = 20\nz = x + y\nx = 30\nprint(z)",
+    "question": "Identify the problem:\\\\n\\\\nx = 10\\\\ny = 20\\\\nz = x + y\\\\nx = 30\\\\nprint(z)",
     "options": [
-      "z should be recalculated when x changes",
-      "z remains 30",
+      "Error",
       "z becomes 50",
-      "Error"
+      "z remains 30",
+      "z should be recalculated when x changes"
     ],
     "correct_answer": "z remains 30",
     "topic": "Variables",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_list = [1, [2, 3], 4]\nprint(my_list[1])",
+    "question": "What is the output?\\\\n\\\\nmy_list = [1, [2, 3], 4]\\\\nprint(my_list[1])",
     "options": [
-      "2",
-      "[2, 3]",
+      "Error",
       "3",
-      "Error"
+      "[2, 3]",
+      "2"
     ],
     "correct_answer": "[2, 3]",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nfor i in range(1, 4):\n    print(i)",
+    "question": "What will be printed?\\\\n\\\\nfor i in range(1, 4):\\\\n    print(i)",
     "options": [
-      "1 2 3",
-      "0 1 2 3",
+      "2 3 4",
       "1, 2, 3, 4",
-      "2 3 4"
+      "0 1 2 3",
+      "1 2 3"
     ],
     "correct_answer": "1 2 3",
     "topic": "Loops",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the bug:\n\nmy_list = [1, 2, 3]\nif len(my_list) > 5:\n    print('Large')\nelse:\n    print('Small')",
+    "question": "Identify the bug:\\\\n\\\\nmy_list = [1, 2, 3]\\\\nif len(my_list) > 5:\\\\n    print('Large')\\\\nelse:\\\\n    print('Small')",
     "options": [
-      "len() doesn't work on lists",
-      "The condition is incorrect",
+      "my_list must be a tuple",
       "No bug - prints 'Small'",
-      "my_list must be a tuple"
+      "The condition is incorrect",
+      "len() doesn't work on lists"
     ],
     "correct_answer": "No bug - prints 'Small'",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_dict = {'x': 1, 'y': 2, 'z': 3}\nprint(len(my_dict))",
+    "question": "What is the output?\\\\n\\\\nmy_dict = {'x': 1, 'y': 2, 'z': 3}\\\\nprint(len(my_dict))",
     "options": [
-      "3",
-      "6",
+      "{'x': 1, 'y': 2, 'z': 3}",
       "Error",
-      "{'x': 1, 'y': 2, 'z': 3}"
+      "6",
+      "3"
     ],
     "correct_answer": "3",
     "topic": "Dictionaries",
     "difficulty": "easy"
   },
   {
-    "question": "What will this print?\n\nx = 5\ny = 10\nprint(x < y < 20)",
+    "question": "What will this print?\\\\n\\\\nx = 5\\\\ny = 10\\\\nprint(x < y < 20)",
     "options": [
-      "Error",
-      "True",
+      "5",
       "False",
-      "5"
+      "Error",
+      "True"
     ],
     "correct_answer": "True",
     "topic": "Operators",
     "difficulty": "easy"
   },
   {
-    "question": "Identify the issue:\n\nmy_list = [1, 2, 3]\nmy_list = my_list.sort()\nprint(my_list)",
+    "question": "Identify the issue:\\\\n\\\\nmy_list = [1, 2, 3]\\\\nmy_list = my_list.sort()\\\\nprint(my_list)",
     "options": [
-      "sort() returns None, not a sorted list",
-      "Lists cannot be sorted",
+      "No issue - prints [1, 2, 3]",
       "The list becomes reversed",
-      "No issue - prints [1, 2, 3]"
+      "Lists cannot be sorted",
+      "sort() returns None, not a sorted list"
     ],
     "correct_answer": "sort() returns None, not a sorted list",
     "topic": "Lists",
     "difficulty": "easy"
   },
   {
-    "question": "What is the output?\n\nmy_str = 'hello world'\nprint(my_str.replace('world', 'Python'))",
+    "question": "What is the output?\\\\n\\\\nmy_str = 'hello world'\\\\nprint(my_str.replace('world', 'Python'))",
     "options": [
-      "'hello world'",
-      "'hello Python'",
+      "Error",
       "'helloworld'",
-      "Error"
+      "'hello Python'",
+      "'hello world'"
     ],
     "correct_answer": "'hello Python'",
     "topic": "Strings",
     "difficulty": "easy"
   },
   {
-    "question": "What will be printed?\n\nx = [1, 2, 3, 4, 5]\nprint(x[::2])",
+    "question": "What will be printed?\\\\n\\\\nx = [1, 2, 3, 4, 5]\\\\nprint(x[::2])",
     "options": [
-      "[1, 3, 5]",
-      "[2, 4]",
+      "Error",
       "[1, 2, 3]",
-      "Error"
+      "[2, 4]",
+      "[1, 3, 5]"
     ],
     "correct_answer": "[1, 3, 5]",
     "topic": "Lists",
