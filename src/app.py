@@ -123,12 +123,14 @@ def get_round_label(role_key: str, round_key: str, domain: str | None):
     if round_key == "L4":
         return "Coding Round"
 
-    # Domain selected → swap L5 / L6
-    if domain and domain != "None":
-        if round_key == "L5":
-            return f"Domain – {domain.capitalize()}"
-        if round_key == "L6":
-            return "Soft Skills"
+        # L5 is always Soft Skills
+    if round_key == "L5":
+        return "Soft Skills"
+
+    # L6 exists only when domain is selected
+    if round_key == "L6" and domain and domain != "None":
+        return f"Domain – {domain.capitalize()}"
+
 
     return base.get(round_key, round_key)
 
