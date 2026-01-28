@@ -23,6 +23,17 @@ import socket
 import streamlit as st
 import pandas as pd
 
+
+# ================================================================
+# L4 JAVA-ONLY ROLES (DO NOT TOUCH OTHER ROLES)
+# ================================================================
+JAVA_L4_ROLES = {
+    "java_entry",
+    "java_aws",
+    "java_qa",
+}
+
+
 # ================================================================
 # ROUND DISPLAY LABELS (UI ONLY)
 # ================================================================
@@ -112,12 +123,14 @@ def get_round_label(role_key: str, round_key: str, domain: str | None):
     if round_key == "L4":
         return "Coding Round"
 
-    # Domain selected → swap L5 / L6
-    if domain and domain != "None":
-        if round_key == "L5":
-            return f"Domain – {domain.capitalize()}"
-        if round_key == "L6":
-            return "Soft Skills"
+        # L5 is always Soft Skills
+    if round_key == "L5":
+        return "Soft Skills"
+
+    # L6 exists only when domain is selected
+    if round_key == "L6" and domain and domain != "None":
+        return f"Domain – {domain.capitalize()}"
+
 
     return base.get(round_key, round_key)
 
@@ -141,7 +154,6 @@ def get_vm_ip():
 # STATE MANAGER
 # ================================================================
 from src.state_manager import load_state, save_state
-
 _disk_state = load_state()
 
 if "ui" not in st.session_state:
@@ -371,7 +383,6 @@ if st.button("🚀 Generate Tests for New Candidates"):
 
     for i, cand in enumerate(pending, start=1):
 
-
         domain_selected = cand["domain"] != "None"
 
         uid, json_path = run_candidate_test_generation_by_role(
@@ -390,18 +401,14 @@ if st.button("🚀 Generate Tests for New Candidates"):
         forms["L1"] = raw_forms.get("L1")
         forms["L2"] = raw_forms.get("L2")
         forms["L3"] = raw_forms.get("L3")
+        forms["L5"] = raw_forms.get("L5")
 
-        # L4 is added later (coding)
-        # L5/L6 logic:
         if domain_selected:
-            # Domain → L5, Soft Skills → L6
-            forms["L5"] = raw_forms.get("L5")   # domain
-            forms["L6"] = raw_forms.get("L6")   # soft skills
-        else:
-            # No domain → Soft Skills stays at L5
-            forms["L5"] = raw_forms.get("L5")
+            forms["L6"] = raw_forms.get("L6")
 
-        # ---- START L4 CODING SERVER ----
+        # =====================================================
+        # START L4 CODING SERVER (ROLE-AWARE, MINIMAL CHANGE)
+        # =====================================================
         port = 5001
         while True:
             try:
@@ -412,25 +419,41 @@ if st.button("🚀 Generate Tests for New Candidates"):
             except OSError:
                 port += 1
 
-        proc = subprocess.Popen(
-            [sys.executable, PROJECT_ROOT / "coding_round_l4" / "exam_server.py", str(port)],
-            cwd=str(PROJECT_ROOT / "coding_round_l4"),
-            env={
-                **os.environ,
-                "CANDIDATE_UID": uid,  # 🔥 KEY FIX
-            }
-        )
-
-        st.session_state.setdefault("l4_processes", {})
-        st.session_state.l4_processes[uid] = proc
+        if cand["role"] in JAVA_L4_ROLES:
+            # -------- JAVA L4 ENGINE --------
+            proc = subprocess.Popen(
+                [
+                    sys.executable,
+                    PROJECT_ROOT / "coding_round_l4" / "coding_round_java" / "exam_server.py",
+                    str(port),
+                ],
+                cwd=str(PROJECT_ROOT / "coding_round_l4" / "coding_round_java"),
+                env={
+                    **os.environ,
+                    "CANDIDATE_UID": uid,
+                }
+            )
+        else:
+            # -------- EXISTING PYTHON / JS L4 ENGINE --------
+            proc = subprocess.Popen(
+                [
+                    sys.executable,
+                    PROJECT_ROOT / "coding_round_l4" / "exam_server.py",
+                    str(port),
+                ],
+                cwd=str(PROJECT_ROOT / "coding_round_l4"),
+                env={
+                    **os.environ,
+                    "CANDIDATE_UID": uid,
+                }
+            )
 
         time.sleep(1)
         forms["L4"] = f"http://{get_vm_ip()}:{port}"
 
+        # ---- Persist candidate data ----
         cand["forms"] = forms
         cand["json_path"] = json_path
-
-        # 🔥 ADD THIS (Step 3)
         cand["l4_result_path"] = str(
             PROJECT_ROOT / "coding_round_l4" / f"l4_result_{uid}.json"
         )
@@ -438,7 +461,10 @@ if st.button("🚀 Generate Tests for New Candidates"):
         cand["tests_generated"] = True
         commit_state()
 
+        progress.progress(i / total)
+
     st.success("All candidate tests generated successfully")
+
 
 
 # st.markdown("---")
@@ -622,6 +648,7 @@ if st.button("Evaluate Selected", key="eval_btn"):
             ui["evaluation_cache"][uid][rnd] = res
             evaluated_any = True
 
+
     commit_state()
 
     if evaluated_any:
@@ -640,12 +667,22 @@ from pathlib import Path
 import tempfile
 
 # ================================================================
-# LOCAL TEMP RESULTS DIR (OS-AWARE)
+# LOCAL TEMP RESULTS DIR (ENV + OS AWARE, DEV SAFE)
 # ================================================================
-if os.name == "nt":  # Windows (local dev)
+import tempfile
+from pathlib import Path
+import os
+
+if os.name == "nt":
+    # Windows local dev
     LOCAL_TMP_DIR = Path(tempfile.gettempdir()) / "aziro_tmp_results"
-else:  # Linux (VM / prod)
-    LOCAL_TMP_DIR = Path("/opt/interview_app/tmp_results")
+else:
+    # Linux (VM / Prod)
+    BASE_TMP_DIR = os.environ.get(
+        "AZIRO_TMP_DIR",
+        os.path.expanduser("~/.aziro_tmp")
+    )
+    LOCAL_TMP_DIR = Path(BASE_TMP_DIR) / "tmp_results"
 
 LOCAL_TMP_DIR.mkdir(parents=True, exist_ok=True)
 

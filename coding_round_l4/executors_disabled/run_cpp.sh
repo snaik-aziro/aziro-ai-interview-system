@@ -5,14 +5,14 @@ read INPUT
 CODE=$(echo "$INPUT" | jq -r '.code')
 ARGS=$(echo "$INPUT" | jq -r '.args | @json')
 
-echo "$CODE" > Solution.java
+echo "$CODE" > solution.cpp
 
-javac Solution.java 2> compile_err.txt || {
+g++ solution.cpp -o solution.out 2> compile_err.txt || {
     echo "{\"stdout\": \"\", \"stderr\": \"$(cat compile_err.txt)\", \"returncode\": 1}"
     exit
 }
 
-OUT=$(timeout 5 java Solution "$ARGS" 2> run_err.txt) || true
+OUT=$(timeout 5 ./solution.out "$ARGS" 2> run_err.txt) || true
 
 if [ -s run_err.txt ]; then
     echo "{\"stdout\": \"\", \"stderr\": \"$(cat run_err.txt)\", \"returncode\": 2}"

@@ -10,7 +10,6 @@ const submitBtn = document.getElementById("submit-btn");
 const timerDisplay = document.getElementById("timer-display");
 const scoreDisplay = document.getElementById("score-display");
 const violationDisplay = document.getElementById("violation-display");
-const langSelect = document.getElementById("lang-select");
 
 // ===========================================================
 // CONSTANTS & STORAGE KEYS
@@ -18,11 +17,10 @@ const langSelect = document.getElementById("lang-select");
 const TOTAL_TIME_SECONDS = 30 * 60;
 
 const STORAGE_KEYS = {
-    START_TIME: "examStartTime",
-    FOCUS_COUNT: "focusLostCount",
-    CODE_PREFIX: "savedCode_"
+    START_TIME: "java_exam_start_time",
+    FOCUS_COUNT: "java_focus_lost",
+    CODE: "java_code"
 };
-
 
 // ===========================================================
 // STATE FLAGS
@@ -49,21 +47,15 @@ let tabViolations = parseInt(
 violationDisplay.textContent =
     tabViolations > 0 ? `Focus lost ${tabViolations} time(s)` : "Focus OK";
 
-const initialLang = langSelect.value || "python";
-const savedCode = sessionStorage.getItem(
-    STORAGE_KEYS.CODE_PREFIX + initialLang
-);
-
-if (savedCode !== null) {
-    editor.value = savedCode;
-} else {
-    editor.value = STARTERS[initialLang] || STARTERS["python"];
-}
-
+// restore editor code
+const savedCode = sessionStorage.getItem(STORAGE_KEYS.CODE);
+editor.value = savedCode ? savedCode : STARTER;
 
 // ===========================================================
-// SAMPLE TESTS (LEFT PANEL) — UNCHANGED
+// SAMPLE TESTS (LEFT PANEL)
 // ===========================================================
+sampleContainer.innerHTML = "";
+
 if (QUESTION && Array.isArray(QUESTION.public_tests)) {
     QUESTION.public_tests.forEach((t, idx) => {
         const div = document.createElement("div");
@@ -91,7 +83,7 @@ function appendOutput(msg) {
 }
 
 // ===========================================================
-// TIMER LOGIC (REFRESH SAFE, 30 MIN, STOPS AT 0:00)
+// TIMER LOGIC
 // ===========================================================
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
@@ -106,6 +98,10 @@ function computeTimeLeft() {
 
 let timeLeft = computeTimeLeft();
 timerDisplay.textContent = formatTime(timeLeft);
+if (timeLeft <= 60) {
+    timerDisplay.style.color = "#ff5555";
+}
+
 
 const timerId = setInterval(() => {
     if (examFinished) return;
@@ -123,42 +119,25 @@ const timerId = setInterval(() => {
 }, 1000);
 
 // ===========================================================
-// REFRESH DETECTION (PREVENT FALSE FOCUS LOST)
+// REFRESH & TAB SWITCH DETECTION
 // ===========================================================
 window.addEventListener("beforeunload", () => {
     isPageRefreshing = true;
 });
 
-// ===========================================================
-// TAB SWITCH DETECTION (ONLY REAL TAB SWITCHES)
-// ===========================================================
 document.addEventListener("visibilitychange", () => {
-    if (!examFinished && document.hidden) {
-        if (isPageRefreshing) return;
-
+    if (!examFinished && document.hidden && !isPageRefreshing) {
         tabViolations++;
         sessionStorage.setItem(STORAGE_KEYS.FOCUS_COUNT, tabViolations);
-
         violationDisplay.textContent = `Focus lost ${tabViolations} time(s)`;
         appendOutput(`[Proctor] Focus lost #${tabViolations}`);
-
-        alert(
-            `⚠️ Warning!\n\nTab switch detected.\nFocus lost: ${tabViolations} time(s).\n\nPlease stay on the test tab.`
-        );
     }
 });
 
-// ===========================================================
-// EDITOR AUTO-SAVE (REFRESH SAFE)
-// ===========================================================
+// persist code
 editor.addEventListener("input", () => {
-    const lang = langSelect.value || "python";
-    sessionStorage.setItem(
-        STORAGE_KEYS.CODE_PREFIX + lang,
-        editor.value
-    );
+    sessionStorage.setItem(STORAGE_KEYS.CODE, editor.value);
 });
-
 
 // ===========================================================
 // CORE API CALL
@@ -177,8 +156,8 @@ async function executeTests({ submit = false, runHidden = false }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             code: editor.value,
-            language: langSelect.value,
-            submit: submit,
+            language: "java",
+            submit,
             run_hidden: runHidden,
             focus_lost: tabViolations
         })
@@ -188,7 +167,7 @@ async function executeTests({ submit = false, runHidden = false }) {
 }
 
 // ===========================================================
-// TEST CASE DETAILS RENDERER (ADDITIVE ONLY)
+// TEST RESULTS RENDERER
 // ===========================================================
 function appendTestResults(testResults) {
     if (!Array.isArray(testResults)) return;
@@ -209,8 +188,9 @@ function appendTestResults(testResults) {
 // BUTTON ACTIONS
 // ===========================================================
 async function runPublicTests() {
-    const result = await executeTests({ submit: false, runHidden: false });
+    const result = await executeTests({});
 
+    // 🔥 ADD THIS CHECK
     if (result.error) {
         setOutput("❌ Error:\n\n" + result.message);
         scoreDisplay.textContent = "Score: 0/0";
@@ -219,16 +199,16 @@ async function runPublicTests() {
 
     scoreDisplay.textContent = `Score: ${result.passed}/${result.total}`;
     setOutput(`✅ Public Tests Passed: ${result.passed}/${result.total}`);
-
-    // ADDITIVE: show per-test details
     appendTestResults(
         result.test_results.filter(t => t.visibility === "public")
     );
 }
 
-async function runHiddenTests() {
-    const result = await executeTests({ submit: false, runHidden: true });
 
+async function runHiddenTests() {
+    const result = await executeTests({ runHidden: true });
+
+    // 🔥 ADD THIS CHECK
     if (result.error) {
         setOutput("❌ Error:\n\n" + result.message);
         scoreDisplay.textContent = "Hidden: 0/0";
@@ -237,10 +217,9 @@ async function runHiddenTests() {
 
     scoreDisplay.textContent = `Hidden: ${result.passed}/${result.total}`;
     setOutput(`🔒 Hidden Tests Passed: ${result.passed}/${result.total}`);
-
-    // ADDITIVE: show per-test details
     appendTestResults(result.test_results);
 }
+
 
 async function submitTest() {
     examFinished = true;
@@ -252,12 +231,19 @@ async function submitTest() {
 
     const result = await executeTests({ submit: true });
 
+    // 🔥 ADD THIS CHECK
+    if (result.error) {
+        setOutput("❌ Error during submission:\n\n" + result.message);
+        return;
+    }
+
     scoreDisplay.textContent = `Final Score: ${result.passed}/${result.total}`;
     setOutput("✅ Test submitted successfully.\n\nYou may now close this page.");
 
     sessionStorage.removeItem(STORAGE_KEYS.START_TIME);
     sessionStorage.removeItem(STORAGE_KEYS.FOCUS_COUNT);
     sessionStorage.removeItem(STORAGE_KEYS.CODE);
+
 }
 
 // ===========================================================
@@ -266,21 +252,4 @@ async function submitTest() {
 runBtn.addEventListener("click", runPublicTests);
 runHiddenBtn.addEventListener("click", runHiddenTests);
 submitBtn.addEventListener("click", submitTest);
-
-langSelect.addEventListener("change", () => {
-    const lang = langSelect.value;
-
-    const savedCode = sessionStorage.getItem(
-        STORAGE_KEYS.CODE_PREFIX + lang
-    );
-
-    if (savedCode !== null) {
-        editor.value = savedCode;
-    } else {
-        editor.value = STARTERS[lang] || STARTERS["python"];
-    }
-
-    setOutput(`📝 ${lang.toUpperCase()} template loaded`);
-});
-
 

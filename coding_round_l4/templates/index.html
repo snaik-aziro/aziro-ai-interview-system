@@ -10,11 +10,13 @@
 <header class="top-bar">
     <div class="brand">Coding Round</div>
     <div class="top-right">
-        <select id="lang-select">
-            <option value="python">Python</option>
-            <option value="javascript">JavaScript</option>
-            <option value="java">Java</option>
-        </select>
+      <select id="lang-select">
+    <option value="python">Python</option>
+    <option value="javascript">JavaScript</option>
+    
+</select>
+
+
         <div id="timer-display">20:00</div>
         <div id="score-display">Score: 0/0</div>
         <div id="violation-display">Focus OK</div>
@@ -46,7 +48,7 @@
         </label>
 
         <!-- ✅ STARTER CODE (NO *args ANYWHERE) -->
-        <textarea id="editor" spellcheck="false">{{ starters["python"] }}</textarea>
+<textarea id="editor" spellcheck="false"></textarea>
 
         <div class="button-row">
             <button id="run-btn">Run</button>
@@ -68,24 +70,15 @@
     const STARTERS = {
         python: {{ starters["python"] | tojson }},
         javascript: {{ starters["javascript"] | tojson }},
-        java: {{ starters["java"] | tojson }}
+        java: {{ starters["java"] | tojson }},
+        c: {{ starters["c"] | tojson }},
+        cpp: {{ starters["cpp"] | tojson }}
     };
 </script>
 
+
+
 <script src="/static/script.js"></script>
-
-<script>
-    // -------------------------------------------------
-    // LANGUAGE SWITCH HANDLER (SAFE & UNCHANGED)
-    // -------------------------------------------------
-    const langSelect = document.getElementById("lang-select");
-    const editor = document.getElementById("editor");
-
-    langSelect.addEventListener("change", () => {
-        const lang = langSelect.value;
-        editor.value = STARTERS[lang];
-    });
-</script>
 
 </body>
 </html>
