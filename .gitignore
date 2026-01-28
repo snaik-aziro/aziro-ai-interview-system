@@ -56,3 +56,12 @@ question_bank/tests/
 # ================================
 start_hr_sessions.sh
 
+# Java runtime artifacts
+*.class
+Main.java
+compile_err.txt
+run_err.txt
+
+# Java L4 runtime files
+coding_round_l4/coding_round_java/java_question_*.json
+coding_round_l4/coding_round_java/java_result_*.json
