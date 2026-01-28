@@ -1,19 +1,22 @@
 import json
 import os
+from pathlib import Path
 
 # -------------------------------------------------
-# SESSION ID (MANDATORY, PORT-ISOLATED)
+# SESSION ID (MANDATORY)
 # -------------------------------------------------
 SESSION_ID = os.environ.get("AZIRO_SESSION_ID")
-
 if not SESSION_ID:
     raise RuntimeError(
         "AZIRO_SESSION_ID not set. "
         "Start Streamlit with AZIRO_SESSION_ID=<port_or_name>"
     )
 
-STATE_DIR = "/opt/interview_app/state"
-os.makedirs(STATE_DIR, exist_ok=True)
+# -------------------------------------------------
+# FORCE DEV STATE DIRECTORY (TEMP FIX)
+# -------------------------------------------------
+STATE_DIR = os.path.expanduser("~/.aziro_state")
+Path(STATE_DIR).mkdir(parents=True, exist_ok=True)
 
 STATE_FILE = os.path.join(STATE_DIR, f"state_{SESSION_ID}.json")
 
