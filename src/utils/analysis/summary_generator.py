@@ -1,3 +1,6 @@
+from src.ai_generator import AI_CLIENT
+
+
 def generate_round_summary(round_name: str, result: dict) -> str:
     """
     Generates detailed, HR-readable summary for non-coding rounds.
@@ -41,6 +44,7 @@ def generate_l4_detailed_summary(l4_result: dict) -> str:
 
     score = l4_result.get("score_percent", 0.0)
     details = l4_result.get("details", [])
+    question = l4_result.get("question", "")
     code = l4_result.get("submitted_code")
 
     passed_tests = len([d for d in details if d.get("is_correct")])
@@ -78,9 +82,10 @@ def generate_l4_detailed_summary(l4_result: dict) -> str:
     return " ".join(summary_parts)
 
 
-def generate_overall_candidate_summary(all_results: dict) -> str:
+def generate_overall_candidate_summary(all_results: dict, ai_model=None) -> str:
     """
     Consolidated summary across all rounds.
+    Rule-based scoring + optional AI polish.
     """
 
     strengths = []
@@ -111,4 +116,26 @@ def generate_overall_candidate_summary(all_results: dict) -> str:
             "Insufficient data available to draw a consolidated conclusion."
         )
 
-    return " ".join(summary_parts)
+    draft_summary = " ".join(summary_parts)
+
+    # --- AI involvement ---
+    if not AI_CLIENT: 
+        print("Gemini API key not found. Returning draft summary.") 
+        return draft_summary 
+    
+    prompt = f""" 
+    Rewrite the following candidate evaluation summary into a professional, 
+    HR-readable narrative while preserving factual content. 
+    
+    Make sure to note that the TA team will go through the evaluation summary. Make it more generalised.
+    If the evaluation logic is correct but the output was not fetched in the code, 
+    provide a relevant summary instead of leaving it blank. 
+    Draft Summary: {draft_summary} """
+
+    try:
+        response = AI_CLIENT.models.generate_content(
+            model="gemini-2.5-flash", contents=prompt)
+        return response.text.strip()
+    except Exception as e:
+        print(f"Error calling Gemini API: {e}")
+        return draft_summary
